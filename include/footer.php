@@ -1,9 +1,9 @@
 <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; 2023 <a href="#">WDPF Round-54</a>.</strong>
-    All rights reserved.
+    
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.0
+    All rights reserved by <b>Ibrahim Khalil</b> & <b>Raihan Sazzad</b>
     </div>
   </footer>
 
