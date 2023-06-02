@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2023 at 09:10 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 02, 2023 at 09:09 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `phpproject`
+-- Database: `hostel`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,12 @@ CREATE TABLE `add_room` (
   `id` int(11) NOT NULL,
   `room_no` int(11) NOT NULL,
   `room_type` int(11) NOT NULL,
-  `room_fees` int(11) NOT NULL
+  `room_fees` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,7 +63,12 @@ CREATE TABLE `book_hostel` (
   `email` varchar(100) NOT NULL,
   `contact_no` bigint(11) NOT NULL,
   `current_add` varchar(100) NOT NULL,
-  `permanent_add` varchar(100) NOT NULL
+  `permanent_add` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -71,8 +81,36 @@ CREATE TABLE `manage_rooms` (
   `id` int(11) NOT NULL,
   `room_no` int(11) NOT NULL,
   `room_type` int(11) NOT NULL,
-  `room_fees` int(11) NOT NULL
+  `room_fees` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sign_in`
+--
+
+CREATE TABLE `sign_in` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact_no` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `cpassword` varchar(255) NOT NULL,
+  `deleted_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sign_in`
+--
+
+INSERT INTO `sign_in` (`id`, `name`, `email`, `contact_no`, `password`, `cpassword`, `deleted_at`) VALUES
+(1, 'Ibrahim Khalil', 'admin@gmail.com', '0123456789', 'adcd7048512e64b48da55b027577886ee5a36350', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -87,7 +125,13 @@ CREATE TABLE `student_registration` (
   `last_name` int(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
   `contact_no` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `email` varchar(50) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -102,7 +146,12 @@ CREATE TABLE `view_student` (
   `name` varchar(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -125,6 +174,12 @@ ALTER TABLE `book_hostel`
 -- Indexes for table `manage_rooms`
 --
 ALTER TABLE `manage_rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sign_in`
+--
+ALTER TABLE `sign_in`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -160,6 +215,12 @@ ALTER TABLE `book_hostel`
 --
 ALTER TABLE `manage_rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sign_in`
+--
+ALTER TABLE `sign_in`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `student_registration`
