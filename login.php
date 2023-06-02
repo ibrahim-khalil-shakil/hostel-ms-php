@@ -4,7 +4,7 @@
     echo "<script>window.location='dashboard.php'</script>";
     exit;
   }
-  $base_url="http://localhost/phpproject/";
+  $base_url="http://localhost/hostel/";
   require_once('class/crud.php');
   $mysqli= new crud;
 ?>
@@ -29,7 +29,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?= $base_url?>assets/index2.html" class="h1"><b>Admin</b>LTE</a>
+      <a href="<?= $base_url?>assets/index2.html" class="h1"><b>Hostel MS <br></b>Admin Panel</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -72,7 +72,7 @@
           $where['email']=$_POST['email'];
           $where['password']=sha1(md5($_POST['password']));
           
-          $rs=$mysqli->common_select('tbl_users','*',$where);
+          $rs=$mysqli->common_select('sign_in','*',$where);
           if(!$rs['error']){
             session_start();
             if(isset($rs['data'][0])){
@@ -94,7 +94,7 @@
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.php" class="text-center">Register a new membership</a>
+        <a href="register.php" class="text-center"><b>Register a new membership</b></a>
       </p>
     </div>
     <!-- /.card-body -->

@@ -1,5 +1,5 @@
 <?php 
-  $base_url="http://localhost/phpproject/";
+  $base_url="http://localhost/hostel/";
   require_once('class/crud.php');
   $mysqli= new crud;
 ?>
@@ -95,7 +95,7 @@
           }
           $_POST['password']=sha1(md5($_POST['password']));
           unset($_POST['cpassword']);
-          $rs=$mysqli->common_create('tbl_users',$_POST);
+          $rs=$mysqli->common_create('sign_in',$_POST);
           if(!$rs['error']){
             echo "<script>window.location='login.php'</script>";
           }else{

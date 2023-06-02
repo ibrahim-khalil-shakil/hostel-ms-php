@@ -4,7 +4,7 @@
     echo "<script>window.location='login.php'</script>";
     exit;
   }
-  $base_url="http://localhost/phpproject/";
+  $base_url="http://localhost/hostel/";
   require_once('class/crud.php');
   $mysqli= new crud;
 ?>
