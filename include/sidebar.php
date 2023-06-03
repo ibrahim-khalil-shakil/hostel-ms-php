@@ -62,7 +62,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>user_add.php" class="nav-link">
+                <a href="<?= $base_url?>book_hostel.php" class="nav-link">
                   <i class="fas fa-h-square nav-icon"></i>
                   <p>Book Hostel</p>
                 </a>
