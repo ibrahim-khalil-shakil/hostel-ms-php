@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 09:09 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 03, 2023 at 09:24 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -71,6 +71,13 @@ CREATE TABLE `book_hostel` (
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `book_hostel`
+--
+
+INSERT INTO `book_hostel` (`id`, `room_no`, `seat_no`, `room_type`, `food`, `gym`, `library`, `indoor_games`, `duration`, `fees_pm`, `reg_no`, `first_name`, `last_name`, `gender`, `email`, `contact_no`, `current_add`, `permanent_add`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 0, '', 'Choose...', 0, 0, 0, 0, 0, 0, '', '', '', '', '', 0, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -122,7 +129,7 @@ CREATE TABLE `student_registration` (
   `id` int(11) NOT NULL,
   `reg_no` int(15) NOT NULL,
   `first_name` varchar(50) NOT NULL,
-  `last_name` int(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
   `contact_no` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -133,6 +140,25 @@ CREATE TABLE `student_registration` (
   `updated_by` datetime NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_registration`
+--
+
+INSERT INTO `student_registration` (`id`, `reg_no`, `first_name`, `last_name`, `gender`, `contact_no`, `email`, `image`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 12345, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:23'),
+(2, 2147483647, 'Raihan', '0', 'Male', '01522107777', 'raihan@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:24'),
+(3, 12345, 'Ibrahim', '0', 'Male', '6546546546', 'iks@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:25'),
+(4, 12345, 'Safayet', '0', 'Male', '01522107777', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:26'),
+(5, 2147483647, 'Jashim', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:26'),
+(6, 12345, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:27'),
+(7, 12345, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:28'),
+(8, 12345, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:29'),
+(9, 2147483647, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:34'),
+(10, 12345, 'touhid', '0', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 06:51:22'),
+(11, 12345, 'Raihan ', '0', 'Male ', '12345678 ', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-03 07:06:09'),
+(12, 2147483647, 'Raihan', 'Sazzad', 'Male', '12345678', 'wdpf@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 12345, 'Ibrahim', 'Khalil', 'Male', '123456', 'ashab@gmail.com', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -208,7 +234,7 @@ ALTER TABLE `add_room`
 -- AUTO_INCREMENT for table `book_hostel`
 --
 ALTER TABLE `book_hostel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `manage_rooms`
@@ -226,7 +252,7 @@ ALTER TABLE `sign_in`
 -- AUTO_INCREMENT for table `student_registration`
 --
 ALTER TABLE `student_registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `view_student`
