@@ -35,30 +35,35 @@
               <thead>
               <tr>
                 <th>#SL</th>
+                <th>Reg. No</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Gender</th>
                 <th>Contact No</th>
+                <th>Email</th>
                 <th>Image</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('tbl_users');
+                  $data=$mysqli->common_select('student_registration');
                   if(!$data['error']){
                     foreach($data['data'] as $d){
+                    
                 ?>
                       <tr>
                         <td><?= $d->id ?></td>
-                        <td><?= $d->name ?></td>
-                        <td><?= $d->email ?></td>
-                        <td><?= $d->contact_no?></td>
+                        <td><?= $d->reg_no ?></td>
+                        <td><?= $d->first_name." ".$d->last_name ?></td>
+                        <td><?= $d->gender ?></td>
+                        <td><?= $d->contact_no ?></td>
+                        <td><?= $d->email?></td>
                         <td><img width="50px" src="<?= $base_url?>upload/users/<?= $d->image?>" alt=""></td>
                         <td>
-                          <a title="Update" href="user_edit.php?id=<?= $d->id ?>">
+                          <a title="Update" href="student_edit.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>
-                          <a title="Delete" class="text-danger" href="user_delete.php?id=<?= $d->id ?>">
+                          <a title="Delete" class="text-danger" href="student_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>

@@ -13,7 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $base_url?>dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Add New</li>
+              <li class="breadcrumb-item active">Update</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,36 +32,59 @@
                 <div class="card-header">
                   <h3 class="card-title">User Information</h3>
                 </div>
+                <?php
+                  $where['id']=$_GET['id'];
+                  $data=$mysqli->common_select('student_registration','*',$where);
+                 
+                  if(!$data['error'] && count($data['data'])>0)
+                    $d=$data['data'][0];
+                  else{
+                    echo "<h2 class='text-danger text-center'>This url is not correct</h2>";
+                    exit;
+                  }
+                ?>
                 <div class="card-body">
                   <div class="row ">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>User Name:</label>
-                        <input type="text" name="name" class="form-control">
+                    <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Registration Number:</label>
+                        <input type="text" name="reg_no" class="form-control" placeholder="Registration Number" value="<?= $d->reg_no ?> ">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <div class="form-group">
-                        <label>User Email:</label>
-                        <input type="email" name="email" class="form-control">
+                        <label>First Name:</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="First Name" value="<?= $d->first_name ?> ">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Last Name:</label>
+                        <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="<?= $d->last_name ?> ">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Gender:</label>
+                        <input type="text" name="gender" class="form-control" placeholder="Male/Female" value="<?= $d->gender ?> ">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
                       <div class="form-group">
                         <label>Contact No:</label>
-                        <input type="text" name="contact_no" class="form-control">
+                        <input type="text" name="contact_no" class="form-control" placeholder="+880" value="<?= $d->contact_no ?> ">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Password:</label>
-                        <input type="password" name="password" class="form-control">
+                        <label>Email:</label>
+                        <input type="email" name="email" class="form-control" placeholder="example@email.com" value="<?= $d->email ?> ">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <div class="form-group">
                         <label>Image:</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" class="form-control" placeholder=".jpeg/.png" value="<?= $d->image ?> ">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -80,13 +103,15 @@
       if($rs)
         $_POST['image']=$imgname;
     }
-    if($_POST['password']){
+    if(trim($_POST['password']) !=""){
       $_POST['password']=sha1(md5($_POST['password']));
+    }else{
+      unset($_POST['password']);
     }
       
-    $rs=$mysqli->common_create('tbl_users',$_POST);
+    $rs=$mysqli->common_update('student_registration',$_POST,$where);
     if(!$rs['error']){
-      echo "<script>window.location='user_list.php'</script>";
+      echo "<script>window.location='view_student.php'</script>";
     }else{
         echo $rs['error'];
     }

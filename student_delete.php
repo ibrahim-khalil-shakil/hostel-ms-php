@@ -5,9 +5,9 @@
 <?php
   $where['id']=$_GET['id'];
   $data['deleted_at']=date('Y-m-d H:i:s');
-  $rs=$mysqli->common_update('tbl_users',$data,$where);
+  $rs=$mysqli->common_update('student_registration',$data,$where);
     if(!$rs['error']){
-      echo "<script>window.location='user_list.php'</script>";
+      echo "<script>window.location='view_student.php'</script>";
     }else{
         echo $rs['error'];
     }

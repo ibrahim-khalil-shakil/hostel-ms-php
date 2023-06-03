@@ -49,14 +49,14 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a href="<?= $base_url?>user_add.php" class="nav-link">
+            <a href="<?= $base_url?>student_reg.php" class="nav-link">
               <i class="nav-icon fas fa-user-plus"></i>
               <p>Student Registration</p>
             </a>
          </li>
             
               <li class="nav-item">
-                <a href="<?= $base_url?>user_list.php" class="nav-link">
+                <a href="<?= $base_url?>view_student.php" class="nav-link">
                   <i class="far fa-user-circle nav-icon"></i>
                   <p>View Student Acc</p>
                 </a>
