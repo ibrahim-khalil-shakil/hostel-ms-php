@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Update Students Acc.</h1>
+            <h1 class="m-0">Update Rooms</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,11 +30,11 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Edit Students Information</h3>
+                  <h3 class="card-title">Edit Room Details</h3>
                 </div>
                 <?php
                   $where['id']=$_GET['id'];
-                  $data=$mysqli->common_select('student_registration','*',$where);
+                  $data=$mysqli->common_select('add_room','*',$where);
                  
                   if(!$data['error'] && count($data['data'])>0)
                     $d=$data['data'][0];
@@ -44,47 +44,29 @@
                   }
                 ?>
                 <div class="card-body">
-                  <div class="row ">
+                <div class="row ">
                     <div class="col-sm-4">
-                    <div class="form-group">
-                        <label>Registration Number:</label>
-                        <input type="text" name="reg_no" class="form-control" placeholder="Registration Number" value="<?= $d->reg_no ?> ">
+                      <div class="form-group">
+                        <label>Room Number:</label>
+                        <input type="text" name="room_no" class="form-control" placeholder="Room No." value="<?= $d->room_no ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>First Name:</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="First Name" value="<?= $d->first_name ?> ">
+                        <label>Seater:</label>
+                        <input type="text" name="seater" class="form-control" placeholder="Seater" value="<?= $d->seater ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Last Name:</label>
-                        <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="<?= $d->last_name ?> ">
+                        <label>Room Type:</label>
+                        <input type="text" name="room_type" class="form-control" placeholder="Room Type" value="<?= $d->room_type ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Gender:</label>
-                        <input type="text" name="gender" class="form-control" placeholder="Male/Female" value="<?= $d->gender ?> ">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Contact No:</label>
-                        <input type="text" name="contact_no" class="form-control" placeholder="+880" value="<?= $d->contact_no ?> ">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Email:</label>
-                        <input type="email" name="email" class="form-control" placeholder="example@email.com" value="<?= $d->email ?> ">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Image:</label>
-                        <input type="file" name="image" class="form-control" placeholder=".jpeg/.png" value="<?= $d->image ?> ">
+                        <label>Total Fees:</label>
+                        <input type="text" name="room_fees" class="form-control" placeholder="Fees Per Month" value="<?= $d->room_fees ?>">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -109,9 +91,9 @@
       unset($_POST['password']);
     }
       
-    $rs=$mysqli->common_update('student_registration',$_POST,$where);
+    $rs=$mysqli->common_update('add_room',$_POST,$where);
     if(!$rs['error']){
-      echo "<script>window.location='view_student.php'</script>";
+      echo "<script>window.location='manage_room.php'</script>";
     }else{
         echo $rs['error'];
     }

@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">View Student Accounts</h1>
+            <h1 class="m-0">Manage Rooms</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,43 +27,40 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">All Students Accounts</h3>
+            <h3 class="card-title">Manage All Rooms</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
+            <a href="add_room.php" class="btn btn-success form-control mb-2">Add New Room</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
                 <th>#SL</th>
-                <th>Reg. No</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Contact No</th>
-                <th>Email</th>
-                <th>Image</th>
+                <th>Room No</th>
+                <th>Seater</th>
+                <th>Room Type</th>
+                <th>Fees Per Month</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('student_registration');
+                  $data=$mysqli->common_select('add_room');
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                     
                 ?>
                       <tr>
                         <td><?= $d->id ?></td>
-                        <td><?= $d->reg_no ?></td>
-                        <td><?= $d->first_name." ".$d->last_name ?></td>
-                        <td><?= $d->gender ?></td>
-                        <td><?= $d->contact_no ?></td>
-                        <td><?= $d->email?></td>
-                        <td><img width="50px" src="<?= $base_url?>upload/users/<?= $d->image?>" alt=""></td>
+                        <td><?= $d->room_no ?></td>
+                        <td><?= $d->seater ?></td>
+                        <td><?= $d->room_type ?></td>
+                        <td><?= $d->room_fees ?></td>
                         <td>
-                          <a title="Update" href="student_edit.php?id=<?= $d->id ?>">
+                        <a title="Update" href="room_edit.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>
-                          <a title="Delete" class="text-danger" href="student_delete.php?id=<?= $d->id ?>">
+                          <a title="Delete" class="text-danger" href="room_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>

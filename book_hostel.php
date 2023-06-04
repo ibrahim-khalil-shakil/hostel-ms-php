@@ -35,6 +35,22 @@
                 <div class="card-body">
                   <div class="row ">
                     <div class="col-sm-4">
+                    <label>Room Type:</label>
+                    <div class="form-group mb-4">
+                        <select class="custom-select mr-sm-2" id="" name="room_type">
+                            <option selected>Choose...</option>
+                            <option value="AC">AC</option>
+                            <option value="Non-AC">Non AC</option>
+                        </select>
+                    </div> 
+                  </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Seater:</label>
+                        <input type="text" name="seater" class="form-control" placeholder="Seater">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
                       <div class="form-group">
                         <label>Room No:</label>
                         <input type="text" name="room_no" class="form-control" placeholder="Room No.">
@@ -47,12 +63,28 @@
                       </div>
                     </div>
                     <div class="col-sm-4">
-                    <label>Room Type:</label>
+                    <label>Start Date:</label>
                     <div class="form-group mb-4">
-                        <select class="custom-select mr-sm-2" id="duration" name="room_type">
+                        <input type="date" name="start_date" class="form-control" id="">
+                    </div> 
+                  </div>
+                  <div class="col-sm-4">
+                    <label>Total Duration</label>
+                    <div class="form-group mb-4">
+                        <select class="custom-select mr-sm-2" id="duration" name="duration">
                             <option selected>Choose...</option>
-                            <option value="1">AC</option>
-                            <option value="0">Non AC</option>
+                            <option value="1">One Month</option>
+                            <option value="2">Two Month</option>
+                            <option value="3">Three Month</option>
+                            <option value="4">Four Month</option>
+                            <option value="5">Five Month</option>
+                            <option value="6">Six Month</option>
+                            <option value="7">Seven Month</option>
+                            <option value="8">Eight Month</option>
+                            <option value="9">Nine Month</option>
+                            <option value="10">Ten Month</option>
+                            <option value="11">Eleven Month</option>
+                            <option value="12">Twelve Month</option>
                         </select>
                     </div> 
                   </div>
@@ -82,32 +114,20 @@
                         <label class="form-check-label" for="">INDOOR GAMES (Extra $25 Per Month)</label>
                     </div>
                     </div>
-                    <div class="col-sm-4">
-                    <label>Total Duration</label>
-                    <div class="form-group mb-4">
-                        <select class="custom-select mr-sm-2" id="duration" name="duration">
-                            <option selected>Choose...</option>
-                            <option value="1">One Month</option>
-                            <option value="2">Two Month</option>
-                            <option value="3">Three Month</option>
-                            <option value="4">Four Month</option>
-                            <option value="5">Five Month</option>
-                            <option value="6">Six Month</option>
-                            <option value="7">Seven Month</option>
-                            <option value="8">Eight Month</option>
-                            <option value="9">Nine Month</option>
-                            <option value="10">Ten Month</option>
-                            <option value="11">Eleven Month</option>
-                            <option value="12">Twelve Month</option>
-                        </select>
-                    </div> 
-                  </div>
                   <div class="col-sm-4">
                       <div class="form-group">
                         <label>Fess Per Month:</label>
                         <input type="text" name="fees_pm" class="form-control" placeholder="Amount">
                       </div>
                     </div>
+                  <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Total Amount:</label>
+                        <input type="text" name="total_fees" class="form-control" placeholder="Amount">
+                      </div>
+                    </div>
+                  
+                 
 
 
                   
@@ -171,7 +191,7 @@
                     
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary form-control">Save</button>
+                        <button type="submit" class="btn btn-primary form-control">Book</button>
                       </div>
                     </div>
                   <!-- Date dd/mm/yyyy -->
@@ -207,7 +227,7 @@
       
     $rs=$mysqli->common_create('book_hostel',$_POST);
     if(!$rs['error']){
-      echo "<script>window.location='view_student.php'</script>";
+      echo "<script>window.location='hostel_student.php'</script>";
     }else{
         echo $rs['error'];
     }

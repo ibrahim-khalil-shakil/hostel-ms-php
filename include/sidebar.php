@@ -68,13 +68,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>user_add.php" class="nav-link">
+                <a href="<?= $base_url?>hostel_student.php" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
                   <p>Hostel Students</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>user_add.php" class="nav-link" id="manage-rooms-link">
+                <a href="<?= $base_url?>manage_room.php" class="nav-link" id="manage-rooms-link">
                   <i class="fas fa-bed nav-icon"></i>
                   <p>Manage Rooms</p>
                 </a>
