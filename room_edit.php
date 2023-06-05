@@ -79,19 +79,7 @@
 
 <?php
   if($_POST){
-    if($_FILES['image']['name']){
-      $imgname=time().rand(1111,9999).'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-      $rs=move_uploaded_file($_FILES['image']['tmp_name'],"upload/users/$imgname");
-      if($rs)
-        $_POST['image']=$imgname;
-    }
-    if(trim($_POST['password']) !=""){
-      $_POST['password']=sha1(md5($_POST['password']));
-    }else{
-      unset($_POST['password']);
-    }
-      
-    $rs=$mysqli->common_update('add_room',$_POST,$where);
+     $rs=$mysqli->common_update('add_room',$_POST,$where);
     if(!$rs['error']){
       echo "<script>window.location='manage_room.php'</script>";
     }else{

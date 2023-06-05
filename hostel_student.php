@@ -62,6 +62,7 @@
                         <td><?= $d->start_date?></td>
                         <td><?= $d->contact_no?></td>
                         <td>
+                        <a href="view_hostel_student.php?id=<?php echo $d->id;?>" title="View Full Details"><i class="fa fa-expand"></i></a>
                           <a title="Delete" class="text-danger" href="hostel_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>

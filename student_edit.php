@@ -103,11 +103,6 @@
       if($rs)
         $_POST['image']=$imgname;
     }
-    if(trim($_POST['password']) !=""){
-      $_POST['password']=sha1(md5($_POST['password']));
-    }else{
-      unset($_POST['password']);
-    }
       
     $rs=$mysqli->common_update('student_registration',$_POST,$where);
     if(!$rs['error']){

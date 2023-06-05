@@ -85,22 +85,6 @@
                   <!-- Date dd/mm/yyyy -->
 
 <?php
-// if($_POST){
-//   $reg_no = $_POST['reg_no'];
-//   $first_name = $_POST['first_name'];
-//   $last_name = $_POST['last_name'];
-//   $gender = $_POST['gender'];
-//   $contact_no = $_POST['contact_no'];
- 
-
-  
-//   $sql = $mysqli->common_create('student_registration',$_POST);
-//   if(!$rs['error']){
-//         echo "<script>window.location='view_student.php'</script>";
-//       }else{
-//           echo $rs['error'];
-//       }
-// }
 
   if($_POST){
     if($_FILES['image']['name']){

@@ -91,11 +91,11 @@
                     <div class="col-sm-4">
                     <label>Food Status</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="food" id="">
+                        <input class="form-check-input" type="radio" name="food" id="" value="1">
                         <label class="form-check-label" for=""> Required (Extra $100 Per Month) </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="food" id="" checked>
+                        <input class="form-check-input" type="radio" name="food" id="" value="0" checked>
                         <label class="form-check-label" for="">Not Required</label>
                     </div>
                     </div>
@@ -197,22 +197,6 @@
                   <!-- Date dd/mm/yyyy -->
 
 <?php
-// if($_POST){
-//   $reg_no = $_POST['reg_no'];
-//   $first_name = $_POST['first_name'];
-//   $last_name = $_POST['last_name'];
-//   $gender = $_POST['gender'];
-//   $contact_no = $_POST['contact_no'];
- 
-
-  
-//   $sql = $mysqli->common_create('student_registration',$_POST);
-//   if(!$rs['error']){
-//         echo "<script>window.location='view_student.php'</script>";
-//       }else{
-//           echo $rs['error'];
-//       }
-// }
 
   if($_POST){
     if($_FILES['image']['name']){
