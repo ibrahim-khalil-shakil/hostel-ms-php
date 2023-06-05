@@ -44,10 +44,16 @@
                         </select>
                     </div> 
                   </div>
-                    <div class="col-sm-4">
+                  <div class="col-sm-4">
                       <div class="form-group">
                         <label>Seater:</label>
-                        <input type="text" name="seater" class="form-control" placeholder="Seater">
+                        <select class="custom-select mr-sm-2" id="" name="seater">
+                            <option selected>Choose...</option>
+                            <option value="1">Single Seater</option>
+                            <option value="2">Double Seater</option>
+                            <option value="3">Three Seater</option>
+                            <option value="4">Four Seater</option>
+                        </select> 
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -157,7 +163,11 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Gender:</label>
-                        <input type="text" name="gender" class="form-control" placeholder="Male/Female">
+                        <select class="custom-select mr-sm-2" id="" name="gender">
+                            <option selected>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select> 
                       </div>
                     </div>
                     <div class="col-sm-4">

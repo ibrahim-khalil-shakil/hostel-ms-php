@@ -55,7 +55,11 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Gender:</label>
-                        <input type="text" name="gender" class="form-control" placeholder="Male/Female">
+                        <select class="custom-select mr-sm-2" id="" name="gender">
+                            <option selected>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select> 
                       </div>
                     </div>
                     <div class="col-sm-4">
