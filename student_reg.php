@@ -101,7 +101,7 @@
       $_POST['password']=sha1(md5($_POST['password']));
     }
       
-    $rs=$mysqli->common_create('student_registration',$_POST);
+    $rs=$mysqli->common_create('student_reg',$_POST);
     if(!$rs['error']){
       echo "<script>window.location='view_student.php'</script>";
     }else{

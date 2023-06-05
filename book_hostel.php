@@ -219,7 +219,7 @@
       $_POST['password']=sha1(md5($_POST['password']));
     }
       
-    $rs=$mysqli->common_create('book_hostel',$_POST);
+    $rs=$mysqli->common_create('hostel_student',$_POST);
     if(!$rs['error']){
       echo "<script>window.location='hostel_student.php'</script>";
     }else{

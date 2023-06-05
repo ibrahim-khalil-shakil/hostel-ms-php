@@ -88,7 +88,7 @@
       $_POST['password']=sha1(md5($_POST['password']));
     }
       
-    $rs=$mysqli->common_create('add_room',$_POST);
+    $rs=$mysqli->common_create('manage_room',$_POST);
     if(!$rs['error']){
       echo "<script>window.location='manage_room.php'</script>";
     }else{

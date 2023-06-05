@@ -46,7 +46,7 @@
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('student_registration');
+                  $data=$mysqli->common_select('student_reg');
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                     

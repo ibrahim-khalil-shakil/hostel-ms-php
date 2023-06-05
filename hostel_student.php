@@ -47,7 +47,7 @@
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('book_hostel');
+                  $data=$mysqli->common_select('hostel_student');
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 07:48 AM
+-- Generation Time: Jun 05, 2023 at 09:34 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,39 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `add_room`
+-- Table structure for table `hostel_student`
 --
 
-CREATE TABLE `add_room` (
-  `id` int(11) NOT NULL,
-  `room_no` int(11) NOT NULL,
-  `seater` int(11) NOT NULL,
-  `room_type` varchar(255) NOT NULL,
-  `room_fees` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by` datetime NOT NULL,
-  `deleted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `add_room`
---
-
-INSERT INTO `add_room` (`id`, `room_no`, `seater`, `room_type`, `room_fees`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
-(1, 501, 2, 'AC', 1000, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 212, 1, 'AC', 1200, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 101, 3, 'Non-AC', 3000, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 333, 4, 'Non-AC', 4500, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_hostel`
---
-
-CREATE TABLE `book_hostel` (
+CREATE TABLE `hostel_student` (
   `id` int(11) NOT NULL,
   `room_no` int(11) NOT NULL,
   `seat_no` varchar(50) NOT NULL,
@@ -82,33 +53,18 @@ CREATE TABLE `book_hostel` (
   `updated_at` datetime NOT NULL,
   `updated_by` datetime NOT NULL,
   `deleted_at` datetime NOT NULL,
-  `start_date` datetime DEFAULT NULL
+  `start_date` datetime DEFAULT NULL,
+  `staying_from` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `book_hostel`
+-- Dumping data for table `hostel_student`
 --
 
-INSERT INTO `book_hostel` (`id`, `room_no`, `seat_no`, `room_type`, `seater`, `food`, `gym`, `library`, `indoor_games`, `duration`, `fees_pm`, `total_fees`, `reg_no`, `first_name`, `last_name`, `gender`, `email`, `contact_no`, `current_add`, `permanent_add`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `start_date`) VALUES
-(1, 101, '5A', 'AC', '1', 1, 0, 0, 0, 1, 1000, '1500', '12134567890', 'Noman', 'Hossain', 'Male', 'noman@gmail.com', 1522107777, '2no Gate', 'Chandpur', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-05 00:00:00'),
-(2, 212, '4', 'Non-AC', '2', 0, 0, 0, 0, 3, 2000, '15000', '12345', 'Safayet', 'Azad', 'Male', 'iksakil2@gmail.com', 1522107777, 'GEC', 'Feni', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-05 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hostel_student`
---
-
-CREATE TABLE `hostel_student` (
-  `id` int(11) NOT NULL,
-  `reg_no` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `room_no` varchar(255) NOT NULL,
-  `seat_no` varchar(255) NOT NULL,
-  `room_type` varchar(255) NOT NULL,
-  `staying_from` datetime NOT NULL,
-  `contact_no` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `hostel_student` (`id`, `room_no`, `seat_no`, `room_type`, `seater`, `food`, `gym`, `library`, `indoor_games`, `duration`, `fees_pm`, `total_fees`, `reg_no`, `first_name`, `last_name`, `gender`, `email`, `contact_no`, `current_add`, `permanent_add`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `start_date`, `staying_from`) VALUES
+(1, 101, '5A', 'AC', '1', 1, 0, 0, 0, 1, 1000, '1500', '12134567890', 'Noman', 'Hossain', 'Male', 'noman@gmail.com', 1522107777, '2no Gate', 'Chandpur', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-05 00:00:00', NULL),
+(2, 212, '4', 'Non-AC', '2', 0, 0, 0, 0, 3, 2000, '15000', '12345', 'Safayet', 'Azad', 'Male', 'iksakil2@gmail.com', 1522107777, 'GEC', 'Feni', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-05 00:00:00', NULL),
+(3, 212, '5', 'Non-AC', '2', 1, 0, 0, 0, 3, 2000, '15000', '2345342323', 'Mojaed', 'Juel', 'Male', 'thouigmail.com', 1522106658, '2no Gate', '2no Gate', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2023-06-05 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -120,7 +76,7 @@ CREATE TABLE `manage_room` (
   `id` int(11) NOT NULL,
   `room_no` int(11) NOT NULL,
   `seater` int(11) NOT NULL,
-  `room_type` int(11) NOT NULL,
+  `room_type` varchar(255) NOT NULL,
   `room_fees` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` datetime NOT NULL,
@@ -128,6 +84,13 @@ CREATE TABLE `manage_room` (
   `updated_by` datetime NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `manage_room`
+--
+
+INSERT INTO `manage_room` (`id`, `room_no`, `seater`, `room_type`, `room_fees`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 101, 1, 'AC', 1000, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -155,67 +118,35 @@ INSERT INTO `sign_in` (`id`, `name`, `email`, `contact_no`, `password`, `cpasswo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_registration`
+-- Table structure for table `student_reg`
 --
 
-CREATE TABLE `student_registration` (
+CREATE TABLE `student_reg` (
   `id` int(11) NOT NULL,
   `reg_no` int(15) NOT NULL,
   `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) DEFAULT NULL,
-  `gender` varchar(50) DEFAULT NULL,
-  `contact_no` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by` datetime NOT NULL,
-  `deleted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `student_registration`
---
-
-INSERT INTO `student_registration` (`id`, `reg_no`, `first_name`, `last_name`, `gender`, `contact_no`, `email`, `image`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
-(1, 12345, 'Noman', 'Hossain', 'Male', '12345678', 'noman@gmail.com', '16859406288592.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `view_student`
---
-
-CREATE TABLE `view_student` (
-  `id` int(11) NOT NULL,
-  `reg_no` int(15) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` datetime NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_reg`
+--
+
+INSERT INTO `student_reg` (`id`, `reg_no`, `first_name`, `last_name`, `gender`, `contact_no`, `email`, `image`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 2147483647, 'Raihan', 'Mojahed', 'Male', '6546546546', 'admin@gmail.com', '16859459234164.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `add_room`
---
-ALTER TABLE `add_room`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `book_hostel`
---
-ALTER TABLE `book_hostel`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `hostel_student`
@@ -236,15 +167,9 @@ ALTER TABLE `sign_in`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student_registration`
+-- Indexes for table `student_reg`
 --
-ALTER TABLE `student_registration`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `view_student`
---
-ALTER TABLE `view_student`
+ALTER TABLE `student_reg`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -252,28 +177,16 @@ ALTER TABLE `view_student`
 --
 
 --
--- AUTO_INCREMENT for table `add_room`
---
-ALTER TABLE `add_room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `book_hostel`
---
-ALTER TABLE `book_hostel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `hostel_student`
 --
 ALTER TABLE `hostel_student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `manage_room`
 --
 ALTER TABLE `manage_room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sign_in`
@@ -282,16 +195,10 @@ ALTER TABLE `sign_in`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `student_registration`
+-- AUTO_INCREMENT for table `student_reg`
 --
-ALTER TABLE `student_registration`
+ALTER TABLE `student_reg`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `view_student`
---
-ALTER TABLE `view_student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

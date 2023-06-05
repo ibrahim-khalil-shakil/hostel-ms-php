@@ -45,7 +45,7 @@
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('add_room');
+                  $data=$mysqli->common_select('manage_room');
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                     
