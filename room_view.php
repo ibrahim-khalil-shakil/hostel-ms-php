@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">View Room</h1>
+            <h1 class="m-0">Room</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,11 +27,11 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Manage All Rooms</h3>
+            <h3 class="card-title">View All Rooms</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <a href="add_room.php" class="btn btn-success form-control mb-2">Add New Room</a>
+            <a href="room_create.php" class="btn btn-success form-control mb-2">Add New Room</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>

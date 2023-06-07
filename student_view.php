@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">View Student</h1>
+            <h1 class="m-0">Student</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">All Students Data</h3>
+            <h3 class="card-title">View Students Data</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">

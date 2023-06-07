@@ -27,11 +27,11 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">All Transactions</h3>
+            <h3 class="card-title">View All Transactions</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <a href="transaction_create.php" class="btn btn-success form-control mb-2">Add New Transaction Detail</a>
+            <a href="transaction_create.php" class="btn btn-success form-control mb-2">Add New Transaction</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>

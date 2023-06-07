@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Facility</h1>
+            <h1 class="m-0">Add Facility</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Add Facility</h3>
+                  <h3 class="card-title">Add New Facility</h3>
                 </div>
                 <div class="card-body">
                   <div class="row ">

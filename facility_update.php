@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Facility</h1>
+            <h1 class="m-0">Update Facility</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Update Facility Details</h3>
+                  <h3 class="card-title">Edit Facility Details</h3>
                 </div>
                 <?php
                   $where['id']=$_GET['id'];

@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Room</h1>
+            <h1 class="m-0">Add Room</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +45,7 @@
                         <label>Aircondition:</label>
                         <select class="custom-select mr-sm-2" id="" name="aircondition">
                             <option selected value="AC">AC</option>
-                            <option value="Non_AC">Non_AC</option>
+                            <option value="Non-AC">Non-AC</option>
                         </select> 
                       </div>
                     </div>
@@ -53,8 +53,8 @@
                       <div class="form-group">
                         <label>Wifi:</label>
                         <select class="custom-select mr-sm-2" id="" name="wifi">
-                            <option selected value="yes">Yes</option>
-                            <option value="no">NO</option>
+                            <option selected value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select> 
                       </div>
                     </div>

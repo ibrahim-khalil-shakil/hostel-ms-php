@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">View Account Head</h1>
+            <h1 class="m-0">Account Head</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,11 +27,11 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Account Head</h3>
+            <h3 class="card-title">View Account Head</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <a href="account_head_create.php" class="btn btn-success form-control mb-2">Add Head</a>
+            <a href="account_head_create.php" class="btn btn-success form-control mb-2">Add Account Head</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
