@@ -48,34 +48,46 @@
               <p> Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a href="<?= $base_url?>student_view.php" class="nav-link">
-              <i class="nav-icon fas fa-user-plus"></i>
-              <p>Student</p>
-            </a>
-         </li>
-              <li class="nav-item">
-                <a href="<?= $base_url?>transaction_view.php" class="nav-link">
-                  <i class="fas fa-h-square nav-icon"></i>
-                  <p>Transaction</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $base_url?>seat_view.php" class="nav-link">
-                  <i class="fas fa-users nav-icon"></i>
-                  <p>Seat</p>
-                </a>
-              </li>
-              <li class="nav-item">
+          <li class="nav-item">
                 <a href="<?= $base_url?>room_view.php" class="nav-link" id="manage-rooms-link">
-                  <i class="fas fa-bed nav-icon"></i>
+                  <i class="fas fa-home nav-icon"></i>
                   <p>Room</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>facility_view.php" class="nav-link" id="manage-rooms-link">
+                <a href="<?= $base_url?>seat_view.php" class="nav-link">
                   <i class="fas fa-bed nav-icon"></i>
+                  <p>Seat</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $base_url?>facility_view.php" class="nav-link" id="manage-rooms-link">
+                  <i class="fas fa-plus nav-icon"></i>
                   <p>Facility</p>
+                </a>
+              </li>
+            <li class="nav-item ">
+              <a href="<?= $base_url?>student_view.php" class="nav-link">
+                <i class="nav-icon fas fa-user-plus"></i>
+                <p>Student</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="<?= $base_url?>user_view.php" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>User</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="<?= $base_url?>account_head_view.php" class="nav-link">
+                <i class="fas fa-ribbon nav-icon"></i>
+                <p>Account Head</p>
+              </a>
+            </li>
+              <li class="nav-item">
+                <a href="<?= $base_url?>transaction_view.php" class="nav-link">
+                  <i class="fas fa-coins nav-icon"></i>
+                  <p>Transaction</p>
                 </a>
               </li>
              
