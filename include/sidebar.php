@@ -49,34 +49,33 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a href="<?= $base_url?>student_reg.php" class="nav-link">
+            <a href="<?= $base_url?>student_view.php" class="nav-link">
               <i class="nav-icon fas fa-user-plus"></i>
-              <p>Student Registration</p>
+              <p>Student</p>
             </a>
          </li>
-            
               <li class="nav-item">
-                <a href="<?= $base_url?>view_student.php" class="nav-link">
-                  <i class="far fa-user-circle nav-icon"></i>
-                  <p>View Student Acc</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $base_url?>book_hostel.php" class="nav-link">
+                <a href="<?= $base_url?>transaction_view.php" class="nav-link">
                   <i class="fas fa-h-square nav-icon"></i>
-                  <p>Book Hostel</p>
+                  <p>Transaction</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>hostel_student.php" class="nav-link">
+                <a href="<?= $base_url?>seat_view.php" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
-                  <p>Hostel Students</p>
+                  <p>Seat</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $base_url?>manage_room.php" class="nav-link" id="manage-rooms-link">
+                <a href="<?= $base_url?>room_view.php" class="nav-link" id="manage-rooms-link">
                   <i class="fas fa-bed nav-icon"></i>
-                  <p>Manage Rooms</p>
+                  <p>Room</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $base_url?>facility_view.php" class="nav-link" id="manage-rooms-link">
+                  <i class="fas fa-bed nav-icon"></i>
+                  <p>Facility</p>
                 </a>
               </li>
              
