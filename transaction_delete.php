@@ -5,9 +5,9 @@
 <?php
   $where['id']=$_GET['id'];
   $data['deleted_at']=date('Y-m-d H:i:s');
-  $rs=$mysqli->common_update('student',$data,$where);
+  $rs=$mysqli->common_update('transaction',$data,$where);
     if(!$rs['error']){
-      echo "<script>window.location='student_view.php'</script>";
+      echo "<script>window.location='transaction_view.php'</script>";
     }else{
         echo $rs['error'];
     }

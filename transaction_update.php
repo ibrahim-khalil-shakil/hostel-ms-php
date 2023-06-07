@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Update Rooms</h1>
+            <h1 class="m-0"> Transaction Upadte Form</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $base_url?>dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Update</li>
+              <li class="breadcrumb-item active">Add New</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,11 +30,12 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Edit Room Details</h3>
+                  <h3 class="card-title">Update Transaction Details</h3>
                 </div>
+
                 <?php
                   $where['id']=$_GET['id'];
-                  $data=$mysqli->common_select('manage_room','*',$where);
+                  $data=$mysqli->common_select('transaction','*',$where);
                  
                   if(!$data['error'] && count($data['data'])>0)
                     $d=$data['data'][0];
@@ -43,40 +44,37 @@
                     exit;
                   }
                 ?>
+
                 <div class="card-body">
-                <div class="row ">
+                  <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Room Number:</label>
-                        <input type="text" name="room_no" class="form-control" placeholder="Room No." value="<?= $d->room_no ?>">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Seater:</label>
-                        <select class="custom-select mr-sm-2" id="" name="seater">
-                            <option selected>Choose...</option>
-                            <option value="1">Single Seater</option>
-                            <option value="2">Double Seater</option>
-                            <option value="3">Three Seater</option>
-                            <option value="4">Four Seater</option>
+                        <label>Account Head Id:</label>
+                        <select class="custom-select mr-sm-2" id="" name="account_head_id" value="<?= $d->account_head_id ?>">
+                            <optgroup label="Choose...">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            </optgroup>
                         </select> 
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Room Type:</label>
-                        <select class="custom-select mr-sm-2" id="" name="room_type">
-                            <option selected>Choose...</option>
-                            <option value="AC">AC</option>
-                            <option value="Non-AC">Non AC</option>
-                        </select> 
+                        <label>Amount:</label>
+                        <input type="text" name="amount" class="form-control" placeholder="Seat No" value="<?= $d->amount ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Total Fees:</label>
-                        <input type="text" name="room_fees" class="form-control" placeholder="Fees Per Month" value="<?= $d->room_fees ?>">
+                        <label>Transaction Date:</label>
+                        <input type="date" name="transaction_date" class="form-control" value="<?= $d->transaction_date ?>">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -89,13 +87,13 @@
 
 <?php
   if($_POST){
-     $rs=$mysqli->common_update('manage_room',$_POST,$where);
-    if(!$rs['error']){
-      echo "<script>window.location='manage_room.php'</script>";
-    }else{
-        echo $rs['error'];
-    }
-  }
+    $rs=$mysqli->common_update('transaction',$_POST,$where);
+   if(!$rs['error']){
+     echo "<script>window.location='transaction_view.php'</script>";
+   }else{
+       echo $rs['error'];
+   }
+ }
 ?>
                 </div>
                 
