@@ -34,7 +34,7 @@
                 </div>
                 <?php
                   $where['id']=$_GET['id'];
-                  $data=$mysqli->common_select('student_registration','*',$where);
+                  $data=$mysqli->common_select('student_reg','*',$where);
                  
                   if(!$data['error'] && count($data['data'])>0)
                     $d=$data['data'][0];
@@ -104,7 +104,7 @@
         $_POST['image']=$imgname;
     }
       
-    $rs=$mysqli->common_update('student_registration',$_POST,$where);
+    $rs=$mysqli->common_update('student_reg',$_POST,$where);
     if(!$rs['error']){
       echo "<script>window.location='view_student.php'</script>";
     }else{

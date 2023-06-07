@@ -5,7 +5,7 @@
 <?php
   $where['id']=$_GET['id'];
   $data['deleted_at']=date('Y-m-d H:i:s');
-  $rs=$mysqli->common_update('book_hostel',$data,$where);
+  $rs=$mysqli->common_update('hostel_student',$data,$where);
     if(!$rs['error']){
       echo "<script>window.location='hostel_student.php'</script>";
     }else{
