@@ -5,9 +5,9 @@
 <?php
   $where['id']=$_GET['id'];
   $data['deleted_at']=date('Y-m-d H:i:s');
-  $rs=$mysqli->common_update('room',$data,$where);
+  $rs=$mysqli->common_update('user',$data,$where);
     if(!$rs['error']){
-      echo "<script>window.location='room_view.php'</script>";
+      echo "<script>window.location='user_view.php'</script>";
     }else{
         echo $rs['error'];
     }
