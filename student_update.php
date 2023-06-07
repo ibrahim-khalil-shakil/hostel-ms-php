@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"> Student Registration Form</h1>
+            <h1 class="m-0">Student Form</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,52 +32,55 @@
                 <div class="card-header">
                   <h3 class="card-title">Student's Information</h3>
                 </div>
+
+                <?php
+                  $where['id']=$_GET['id'];
+                  $data=$mysqli->common_select('student','*',$where);
+                 
+                  if(!$data['error'] && count($data['data'])>0)
+                    $d=$data['data'][0];
+                  else{
+                    echo "<h2 class='text-danger text-center'>This url is not correct</h2>";
+                    exit;
+                  }
+                ?>
+
                 <div class="card-body">
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Registration Number:</label>
-                        <input type="text" name="reg_no" class="form-control" placeholder="Registration Number">
+                        <label>Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Full Name" value="<?= $d->name ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>First Name:</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                        <label>Father's Name:</label>
+                        <input type="text" name="father" class="form-control" placeholder="Full Name" value="<?= $d->father ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Last Name:</label>
-                        <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                        <label>Mother's Name:</label>
+                        <input type="text" name="mother" class="form-control" placeholder="Full Name" value="<?= $d->mother ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Gender:</label>
-                        <select class="custom-select mr-sm-2" id="" name="gender">
-                            <option selected>Choose...</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select> 
+                        <label>Contact:</label>
+                        <input type="text" name="contact" class="form-control" placeholder="+880" value="<?= $d->contact ?>"> 
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Contact No:</label>
-                        <input type="text" name="contact_no" class="form-control" placeholder="+880">
+                        <label>Guardian Contact:</label>
+                        <input type="text" name="guardian_contact" class="form-control" placeholder="+880" value="<?= $d->guardian_contact ?>">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Email:</label>
-                        <input type="email" name="email" class="form-control" placeholder="example@email.com">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Image:</label>
-                        <input type="file" name="image" class="form-control" placeholder=".jpeg/.png">
+                        <label>NID:</label>
+                        <input type="text" name="nid_bc" class="form-control" placeholder="National Id Card Number" value="<?= $d->nid_bc ?>">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -89,25 +92,14 @@
                   <!-- Date dd/mm/yyyy -->
 
 <?php
-
-  if($_POST){
-    if($_FILES['image']['name']){
-      $imgname=time().rand(1111,9999).'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-      $rs=move_uploaded_file($_FILES['image']['tmp_name'],"upload/users/$imgname");
-      if($rs)
-        $_POST['image']=$imgname;
-    }
-    if($_POST['password']){
-      $_POST['password']=sha1(md5($_POST['password']));
-    }
-      
-    $rs=$mysqli->common_create('student_reg',$_POST);
-    if(!$rs['error']){
-      echo "<script>window.location='view_student.php'</script>";
-    }else{
-        echo $rs['error'];
-    }
-  }
+ if($_POST){
+  $rs=$mysqli->common_update('student',$_POST,$where);
+ if(!$rs['error']){
+   echo "<script>window.location='student_view.php'</script>";
+ }else{
+     echo $rs['error'];
+ }
+}
 ?>
                 </div>
                 
