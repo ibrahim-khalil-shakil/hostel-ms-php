@@ -37,13 +37,31 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label>Student ID:</label>
-                      <input type="text" name="student_id" class="form-control" placeholder="Student ID.">
+                      <select class="custom-select mr-sm-2" id="" name="student_id">
+                        <?php
+                        $data = $mysqli->common_select('student');
+                        if (!$data['error']) {
+                          foreach ($data['data'] as $dt) {
+                        ?>
+                            <option value="<?= $dt->id ?>"><?= $dt->id ?></option>
+                        <?php }
+                        } ?>
+                      </select>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label>Facility ID:</label>
-                      <input type="text" name="facility_id" class="form-control" placeholder="Facility ID.">
+                      <select class="custom-select mr-sm-2" id="" name="facility_id">
+                        <?php
+                        $data = $mysqli->common_select('facility');
+                        if (!$data['error']) {
+                          foreach ($data['data'] as $dt) {
+                        ?>
+                            <option value="<?= $dt->id ?>"><?= $dt->id ?></option>
+                        <?php }
+                        } ?>
+                      </select>
                     </div>
                   </div>
                   <div class="col-sm-12">
