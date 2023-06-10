@@ -73,6 +73,12 @@
            </a>
          </li>
          <li class="nav-item ">
+           <a href="<?= $base_url ?>student_facility_view.php" class="nav-link">
+             <i class="fa-solid fa-diamond nav-icon"></i>
+             <p>Student Facility</p>
+           </a>
+         </li>
+         <li class="nav-item ">
            <a href="<?= $base_url ?>user_view.php" class="nav-link">
              <i class="nav-icon fas fa-users"></i>
              <p>User</p>
