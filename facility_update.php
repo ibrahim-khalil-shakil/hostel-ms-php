@@ -56,8 +56,8 @@
                         <label>Count Type:</label>
                         <select class="custom-select mr-sm-2" id="" name="count_type" value="<?= $d->count_type ?>">
                             <optgroup label="Choose...">    
-                                <option value="Daily">Daily</option>
-                                <option value="Monthly">Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Monthly</option>
                             </optgroup>
                         </select> 
                       </div>

@@ -45,8 +45,8 @@
                         <label>Count Type:</label>
                         <select class="custom-select mr-sm-2" id="" name="count_type">
                             <optgroup label="Choose...">    
-                                <option value="Daily">Daily</option>
-                                <option value="Monthly">Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Monthly</option>
                             </optgroup>
                         </select> 
                       </div>
@@ -65,26 +65,16 @@
                   </div>
                   <!-- Date dd/mm/yyyy -->
 
-<?php
-  if($_POST){
-    if($_FILES['image']['name']){
-      $imgname=time().rand(1111,9999).'.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-      $rs=move_uploaded_file($_FILES['image']['tmp_name'],"upload/users/$imgname");
-      if($rs)
-        $_POST['image']=$imgname;
-    }
-    if($_POST['password']){
-      $_POST['password']=sha1(md5($_POST['password']));
-    }
-      
-    $rs=$mysqli->common_create('facility',$_POST);
-    if(!$rs['error']){
-      echo "<script>window.location='facility_view.php'</script>";
-    }else{
-        echo $rs['error'];
-    }
-  }
-?>
+                  <?php
+                    if($_POST){
+                      $rs=$mysqli->common_create('facility',$_POST);
+                      if(!$rs['error']){
+                        echo "<script>window.location='facility_view.php'</script>";
+                      }else{
+                          echo $rs['error'];
+                      }
+                    }
+                  ?>
                 </div>
                 
               </form>

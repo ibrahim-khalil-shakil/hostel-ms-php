@@ -49,14 +49,30 @@
                                 <div class="row ">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Student ID:</label>
-                                            <input type="text" name="student_id" class="form-control" placeholder="Student ID." value="<?= $d->student_id ?>">
+                                            <label>Student:</label>
+                                            <select class="custom-select mr-sm-2" id="" name="student_id">
+                                                <?php
+                                                    $data=$mysqli->common_select('student');
+                                                    if(!$data['error']){
+                                                    foreach($data['data'] as $dt){
+                                                ?>
+                                                    <option <?= $d->student_id==$dt->id?"selected":"" ?> value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
+                                                <?php } } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Facility ID:</label>
-                                            <input type="text" name="facility_id" class="form-control" placeholder="Facility ID." value="<?= $d->facility_id ?>">
+                                            <label>Facility:</label>
+                                            <select class="custom-select mr-sm-2" id="" name="facility_id">
+                                            <?php
+                                                $data=$mysqli->common_select('facility');
+                                                if(!$data['error']){
+                                                foreach($data['data'] as $dt){
+                                            ?>
+                                                <option <?= $d->facility_id==$dt->id?"selected":"" ?> value="<?= $dt->id ?>"><?= $dt->name ?></option>
+                                            <?php } } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">

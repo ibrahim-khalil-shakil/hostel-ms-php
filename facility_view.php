@@ -51,7 +51,7 @@
                       <tr>
                         <td><?= $d->id ?></td>
                         <td><?= $d->name ?></td>
-                        <td><?= $d->count_type ?></td>
+                        <td><?= $d->count_type==1?"Daily":"Monthly" ?></td>
                         <td><?= $d->amount ?></td>
                         <td>
                         <a title="Update" href="facility_update.php?id=<?= $d->id ?>">

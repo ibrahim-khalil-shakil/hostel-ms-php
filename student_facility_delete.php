@@ -4,8 +4,7 @@
 
 <?php
   $where['id']=$_GET['id'];
-  $data['deleted_at']=date('Y-m-d H:i:s');
-  $rs=$mysqli->common_update('student_facility',$data,$where);
+  $rs=$mysqli->common_delete('student_facility',$where);
     if(!$rs['error']){
       echo "<script>window.location='student_facility_view.php'</script>";
     }else{

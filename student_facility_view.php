@@ -35,22 +35,22 @@
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
-                <th>Student ID</th>
-                <th>Facility ID</th>
+                <th>#SL</th>
+                <th>Student</th>
+                <th>Facility</th>
+                <th>Action</th>
               </tr>
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('student_facility');
+                  $data=$mysqli->common_select_query("SELECT student.name,student.contact,facility.name as fac,facility.amount,student_facility.id FROM `student_facility` join student on student.id=student_facility.student_id join facility on facility.id=student_facility.facility_id");
                   if(!$data['error']){
                     foreach($data['data'] as $d){
-                    
                 ?>
                       <tr>
                         <td><?= $d->id ?></td>
-                        <td><?= $d->student_id ?></td>
-                        <td><?= $d->facility_id ?></td>
+                        <td><?= $d->name ?> (<?= $d->contact ?>)</td>
+                        <td><?= $d->fac ?> (<?= $d->amount ?>)</td>
                         <td>
                         <a title="Update" href="student_facility_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
@@ -60,10 +60,7 @@
                           </a>
                         </td>
                       </tr>
-                <?php
-                    }
-                  }
-                ?>
+                <?php }} ?>
               </tbody>
             </table>
           </div><!-- /.card-body -->

@@ -34,16 +34,32 @@
               </div>
               <div class="card-body">
                 <div class="row ">
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                     <div class="form-group">
-                      <label>Student ID:</label>
-                      <input type="text" name="student_id" class="form-control" placeholder="Student ID.">
+                      <label>Student:</label>
+                      <select class="custom-select mr-sm-2" id="" name="student_id">
+                        <?php
+                            $data=$mysqli->common_select('student');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
+                          <?php } } ?>
+                        </select>
                     </div>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                     <div class="form-group">
-                      <label>Facility ID:</label>
-                      <input type="text" name="facility_id" class="form-control" placeholder="Facility ID.">
+                      <label>Facility:</label>
+                      <select multiple class="custom-select mr-sm-2" id="" name="facility_id[]">
+                        <?php
+                            $data=$mysqli->common_select('facility');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option value="<?= $dt->id ?>"><?= $dt->name ?></option>
+                          <?php } } ?>
+                        </select>
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -56,17 +72,11 @@
 
                 <?php
                 if ($_POST) {
-                  if ($_FILES['image']['name']) {
-                    $imgname = time() . rand(1111, 9999) . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                    $rs = move_uploaded_file($_FILES['image']['tmp_name'], "upload/users/$imgname");
-                    if ($rs)
-                      $_POST['image'] = $imgname;
+                  foreach($_POST['facility_id'] as $fac){
+                    $sd['facility_id']=$fac;
+                    $sd['student_id']=$_POST['student_id'];
+                    $rs = $mysqli->common_create('student_facility', $sd);
                   }
-                  if ($_POST['password']) {
-                    $_POST['password'] = sha1(md5($_POST['password']));
-                  }
-
-                  $rs = $mysqli->common_create('student_facility', $_POST);
                   if (!$rs['error']) {
                     echo "<script>window.location='student_facility_view.php'</script>";
                   } else {

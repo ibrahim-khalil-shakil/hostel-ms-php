@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Student</h1>
+            <h1 class="m-0">Student Bill</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $base_url?>dashboard">Home</a></li>
-              <li class="breadcrumb-item active">List</li>
+              <li class="breadcrumb-item active">Bill List</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -27,56 +27,45 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">View Students Data</h3>
+            <h3 class="card-title">View Bills</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-          <a href="student_create.php" class="btn btn-success form-control mb-2">Add New Student</a>
+            <a href="student_bill_create.php?student_id=<?= $_GET['student_id'] ?>" class="btn btn-success form-control mb-2">Add New Bill</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Father's Name</th>
-                <th>Mother's Name</th>
-                <th>Contact No</th>
-                <th>Guardian's Contact No</th>
-                <th>NID</th>
-                <th>Seat</th>
+                <th>#SL</th>
+                <th>Student</th>
+                <th>Facility</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select_query("SELECT student.*,seat.seat_no FROM `student`
-                  join seat on seat.id=student.seat_id
-                  WHERE student.deleted_at is null");
+                  $student=$_GET['student_id'];
+                  $data=$mysqli->common_select_query("SELECT student.name,student.contact,facility.name as fac, facility.amount as famount,
+                  facility.count_type,student_monthly_bill.* FROM `student_monthly_bill`
+                  join student on student.id=student_monthly_bill.student_id
+                  join facility on facility.id=student_monthly_bill.facility_id
+                  where student_monthly_bill.student_id=$student");
                   if(!$data['error']){
                     foreach($data['data'] as $d){
-                    
                 ?>
                       <tr>
                         <td><?= $d->id ?></td>
-                        <td><?= $d->name ?></td>
-                        <td><?= $d->father ?></td>
-                        <td><?= $d->mother ?></td>
-                        <td><?= $d->contact ?></td>
-                        <td><?= $d->guardian_contact ?></td>
-                        <td><?= $d->nid_bc?></td>
-                        <td><?= $d->seat_no?></td>
+                        <td><?= $d->name ?> (<?= $d->contact ?>)</td>
+                        <td><?= $d->fac ?> (<?= $d->amount ?>)</td>
                         <td>
-                          <a title="Bill List" href="student_bill_view.php?student_id=<?= $d->id ?>">
-                            <i class="fa fa-list"></i>
-                          </a>
-                          <a title="Update" href="student_update.php?id=<?= $d->id ?>">
+                        <a title="Update" href="student_bill_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>
-                          <a title="Delete" class="text-danger" href="student_delete.php?id=<?= $d->id ?>">
+                          <a title="Delete" class="text-danger" href="student_bill_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>
                       </tr>
-                <?php } } ?>
+                <?php }} ?>
               </tbody>
             </table>
           </div><!-- /.card-body -->

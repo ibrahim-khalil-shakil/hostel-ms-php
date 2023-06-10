@@ -70,6 +70,20 @@
                         <input type="text" name="nid_bc" class="form-control" placeholder="National Id Card Number">
                       </div>
                     </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Seat:</label>
+                        <select class="custom-select mr-sm-2" id="" name="seat_id">
+                          <?php
+                            $data=$mysqli->common_select('seat');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option value="<?= $dt->id ?>"><?= $dt->seat_no ?></option>
+                          <?php } } ?>
+                        </select> 
+                      </div>
+                    </div>
                     <div class="col-sm-12">
                       <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
