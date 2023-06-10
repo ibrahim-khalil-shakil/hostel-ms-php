@@ -50,18 +50,14 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Room Id:</label>
-                        <select class="custom-select mr-sm-2" id="" name="room_id" value="<?= $d->room_id ?>">
-                            <optgroup label="Choose...">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            </optgroup>
+                        <select class="custom-select mr-sm-2" id="" name="room_id">
+                        <?php
+                            $data=$mysqli->common_select('room');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option <?= $d->room_id==$dt->id?"selected":""?> value="<?= $dt->id ?>"><?= $dt->room_no ?></option>
+                          <?php } } ?>
                         </select> 
                       </div>
                     </div>

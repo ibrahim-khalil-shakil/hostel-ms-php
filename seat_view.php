@@ -44,14 +44,16 @@
               </thead>
               <tbody>
                 <?php
-                  $data=$mysqli->common_select('seat');
+                  $data=$mysqli->common_select_query("SELECT seat.*,room.room_no FROM `seat`
+                  join room on room.id=seat.room_id
+                  WHERE seat.`deleted_at` is null");
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                     
                 ?>
                       <tr>
                         <td><?= $d->id ?></td>
-                        <td><?= $d->room_id ?></td>
+                        <td><?= $d->room_no ?></td>
                         <td><?= $d->seat_no ?></td>
                         <td><?= $d->rent ?></td>
                         <td>
