@@ -42,20 +42,8 @@
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Aircondition:</label>
-                        <select class="custom-select mr-sm-2" id="" name="aircondition">
-                            <option selected value="AC">AC</option>
-                            <option value="Non-AC">Non-AC</option>
-                        </select> 
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label>Wifi:</label>
-                        <select class="custom-select mr-sm-2" id="" name="wifi">
-                            <option selected value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select> 
+                        <label>Facility ID:</label>
+                        <input type="text" name="facility_id" class="form-control" placeholder="Facility ID.">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -78,9 +66,9 @@
       $_POST['password']=sha1(md5($_POST['password']));
     }
       
-    $rs=$mysqli->common_create('room',$_POST);
+    $rs=$mysqli->common_create('student_facility',$_POST);
     if(!$rs['error']){
-      echo "<script>window.location='room_view.php'</script>";
+      echo "<script>window.location='student_facility_view.php'</script>";
     }else{
         echo $rs['error'];
     }
