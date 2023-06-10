@@ -50,13 +50,13 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Student ID:</label>
-                                            <input type="text" name="student_id" class="form-control" placeholder="Student ID.">
+                                            <input type="text" name="student_id" class="form-control" placeholder="Student ID." value="<?= $d->student_id ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Facility ID:</label>
-                                            <input type="text" name="facility_id" class="form-control" placeholder="Facility ID.">
+                                            <input type="text" name="facility_id" class="form-control" placeholder="Facility ID." value="<?= $d->facility_id ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">

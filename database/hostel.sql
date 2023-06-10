@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2023 at 07:41 AM
+-- Generation Time: Jun 10, 2023 at 07:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,6 +39,14 @@ CREATE TABLE `account_head` (
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `account_head`
+--
+
+INSERT INTO `account_head` (`id`, `head_name`, `head_code`, `account_type`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'raihan Shazzad', '125225', 'irregular', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-07 08:50:47'),
+(2, 'raihan Shazzad', '525535', 'irregular', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +64,13 @@ CREATE TABLE `facility` (
   `updated_by` varchar(255) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `facility`
+--
+
+INSERT INTO `facility` (`id`, `name`, `count_type`, `amount`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'Gym', 'Daily', '10000.00', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-07 07:56:37');
 
 -- --------------------------------------------------------
 
@@ -152,9 +167,10 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`id`, `room_no`, `aircondition`, `wifi`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
 (1, '102', '1', 'yes', NULL, NULL, NULL, NULL, NULL),
-(2, '252', 'AC', 'Choose...', NULL, NULL, NULL, NULL, NULL),
+(2, '252', 'AC', 'Choose...', NULL, NULL, NULL, NULL, '2023-06-07 08:25:38'),
 (3, '104', 'Non_AC', 'no', NULL, NULL, NULL, NULL, '2023-06-07 07:01:46'),
-(4, '15965', 'Non_AC', 'yes', NULL, NULL, NULL, NULL, NULL);
+(4, '15965', 'Non_AC', 'yes', NULL, NULL, NULL, NULL, NULL),
+(5, '104', 'AC', 'yes', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,6 +237,31 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_facility`
+--
+
+CREATE TABLE `student_facility` (
+  `id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `facility_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` varchar(255) NOT NULL,
+  `deleted_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_facility`
+--
+
+INSERT INTO `student_facility` (`id`, `student_id`, `facility_id`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 2147483647, 6666666, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-10 07:23:51'),
+(2, 1110022, 30265, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_monthly_bill`
 --
 
@@ -252,35 +293,6 @@ CREATE TABLE `student_payment` (
   `updated_by` varchar(255) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student_reg`
---
-
-CREATE TABLE `student_reg` (
-  `id` int(11) NOT NULL,
-  `reg_no` int(15) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `gender` varchar(50) NOT NULL,
-  `contact_no` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by` datetime NOT NULL,
-  `deleted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `student_reg`
---
-
-INSERT INTO `student_reg` (`id`, `reg_no`, `first_name`, `last_name`, `gender`, `contact_no`, `email`, `image`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
-(1, 2147483647, 'Raihan', 'Mojahed', 'Male', '6546546546', 'admin@gmail.com', '16859459234164.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -318,6 +330,13 @@ CREATE TABLE `user` (
   `updated_by` varchar(255) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `contact`, `password`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'Raihan Shazzad', 'admin@gmail.com', '01245855858', 'b22c388e12f63e7bf7f1d0f59b5c66e7015eb1e8', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-07 08:19:58');
 
 --
 -- Indexes for dumped tables
@@ -372,6 +391,12 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `student_facility`
+--
+ALTER TABLE `student_facility`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student_monthly_bill`
 --
 ALTER TABLE `student_monthly_bill`
@@ -381,12 +406,6 @@ ALTER TABLE `student_monthly_bill`
 -- Indexes for table `student_payment`
 --
 ALTER TABLE `student_payment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `student_reg`
---
-ALTER TABLE `student_reg`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -409,13 +428,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account_head`
 --
 ALTER TABLE `account_head`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `hostel_student`
@@ -433,7 +452,7 @@ ALTER TABLE `manage_room`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `seat`
@@ -454,6 +473,12 @@ ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `student_facility`
+--
+ALTER TABLE `student_facility`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `student_monthly_bill`
 --
 ALTER TABLE `student_monthly_bill`
@@ -466,12 +491,6 @@ ALTER TABLE `student_payment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `student_reg`
---
-ALTER TABLE `student_reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
@@ -481,7 +500,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
