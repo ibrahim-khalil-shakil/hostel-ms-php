@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2023 at 10:08 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 11, 2023 at 08:18 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,6 +57,16 @@ CREATE TABLE `facility` (
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `facility`
+--
+
+INSERT INTO `facility` (`id`, `name`, `count_type`, `amount`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'Gym', '2', 1000.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2, 'Indoor Games', '2', 500.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(3, 'Library', '2', 300.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(4, 'Food', '1', 200.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +111,16 @@ CREATE TABLE `room` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `room_no`, `aircondition`, `wifi`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, '101', 'AC', 'Yes', NULL, NULL, NULL, NULL, NULL),
+(2, '102', 'AC', 'No', NULL, NULL, NULL, NULL, NULL),
+(3, '201', 'Non-AC', 'Yes', NULL, NULL, NULL, NULL, NULL),
+(4, '202', 'Non-AC', 'No', NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +138,16 @@ CREATE TABLE `seat` (
   `updated_by` varchar(255) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`id`, `room_id`, `seat_no`, `rent`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 1, '1', 1000.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2, 2, '2', 2000.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(3, 3, '3', 3000.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(4, 4, '4', 4000.00, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -163,6 +193,16 @@ CREATE TABLE `student` (
   `updated_by` varchar(255) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `name`, `father`, `mother`, `contact`, `guardian_contact`, `nid_bc`, `seat_id`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'Sujon', 'Sohel', 'Sefali', '+880123456789', '+880123456789', '123456789', 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2, 'Roni', 'Rakib', 'Rokeya', '+880987654321', '+880987654321', '987654321', 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(3, 'Tonmoy', 'Taieb', 'Taslima', '+880192837465', '+880192837465', '192837465', 3, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(4, 'Jubair', 'Jamal', 'Jerin', '+880987123645', '+880987123645', '987123645', 4, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -376,7 +416,7 @@ ALTER TABLE `account_head`
 -- AUTO_INCREMENT for table `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `manage_room`
@@ -388,13 +428,13 @@ ALTER TABLE `manage_room`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sign_in`
@@ -406,7 +446,7 @@ ALTER TABLE `sign_in`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `student_facility`
