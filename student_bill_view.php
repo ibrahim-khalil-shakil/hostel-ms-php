@@ -35,34 +35,34 @@
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>#SL</th>
-                <th>Student</th>
-                <th>Facility</th>
+                <th>Month</th>
+                <th>Amount</th>
+                <th>Due</th>
+                <th>Pay Status</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody>
                 <?php
                   $student=$_GET['student_id'];
-                  $data=$mysqli->common_select_query("SELECT student.name,student.contact,facility.name as fac, facility.amount as famount,
-                  facility.count_type,student_monthly_bill.* FROM `student_monthly_bill`
-                  join student on student.id=student_monthly_bill.student_id
-                  join facility on facility.id=student_monthly_bill.facility_id
-                  where student_monthly_bill.student_id=$student");
+                  $data=$mysqli->common_select_query("SELECT *,(select sum(pay_amount) from student_payment where student_payment.bill_id=student_monthly_bill.id) as pay, month(bill_month) as m, year(bill_month) as y FROM `student_monthly_bill` where student_monthly_bill.student_id=$student");
                   if(!$data['error']){
                     foreach($data['data'] as $d){
                 ?>
                       <tr>
-                        <td><?= $d->id ?></td>
-                        <td><?= $d->name ?> (<?= $d->contact ?>)</td>
-                        <td><?= $d->fac ?> (<?= $d->amount ?>)</td>
+                        <td><?= $d->y ?>/<?= date('F', mktime(0,0,0,$d->m))  ?></td>
+                        <td><?= $d->amount ?></td>
+                        <td><?= ($d->amount-$d->pay) ?></td>
+                        <td><?= $d->bill_status?"Paid":"Unpaid" ?></td>
                         <td>
-                        <a title="Update" href="student_bill_update.php?id=<?= $d->id ?>">
-                            <i class="fa fa-edit"></i>
+                          <a title="Bill Pay" href="student_bill_pay.php?id=<?= $d->id ?>">
+                            <i class="fa-solid fa-receipt"></i>
                           </a>
+                          <?php if($d->pay <= 0){ ?>
                           <a title="Delete" class="text-danger" href="student_bill_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>
+                          <?php } ?>
                         </td>
                       </tr>
                 <?php }} ?>

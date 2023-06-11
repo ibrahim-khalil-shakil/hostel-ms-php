@@ -74,13 +74,11 @@
           
           $rs=$mysqli->common_select('sign_in','*',$where);
           if(!$rs['error']){
-            session_start();
             if(isset($rs['data'][0])){
               $_SESSION['userid']=$rs['data'][0]->id;
               $_SESSION['username']=$rs['data'][0]->name;
               $_SESSION['contact']=$rs['data'][0]->contact_no;
               $_SESSION['email']=$rs['data'][0]->email;
-              $_SESSION['image']=$rs['data'][0]->image;
             }
             echo "<script>window.location='dashboard.php'</script>";
           }else{

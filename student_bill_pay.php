@@ -8,12 +8,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Add Student Bill</h1>
+          <h1 class="m-0">Add Student Bill Pay</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?= $base_url ?>dashboard">Home</a></li>
-            <li class="breadcrumb-item active">Add New</li>
+            <li class="breadcrumb-item active">Pay</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -27,51 +27,53 @@
       <div class="row">
         <div class="col-md-12">
         <?php
-          $student_id = $_GET['student_id'];
-          $lastbill=$mysqli->common_select_query("SELECT month(`bill_month`) as m, year(`bill_month`) as y FROM `student_monthly_bill` WHERE student_id=$student_id order by `bill_month` desc LIMIT 1");
-          if($lastbill){
-            if(!empty($lastbill['data'])){
-              if($lastbill['data'][0]->m ==12){
-                $selected_month =1; //current month
-                $selected_year = $lastbill['data'][0]->y + 1; // current Year
-              }else{
-                $selected_month =$lastbill['data'][0]->m + 1; //current month
-                $selected_year =$lastbill['data'][0]->y; // current Year
-              }
-            }else{
-              $selected_month = date('m'); //current month
-              $selected_year = date('Y'); // current Year
+          $bill_id = $_GET['id'];
+          $already_pay=0;
+          $paybill=$mysqli->common_select_query("select sum(pay_amount) as payment from student_payment where bill_id=$bill_id");
+          if($paybill){
+            if(!empty($paybill['data'])){
+              $already_pay=$paybill['data'][0]->payment;
             }
           }
+          $where['id']=$bill_id;
+          $bill_details=$mysqli->common_select_single("student_monthly_bill","*",$where);
+          if($bill_details){
+            if(!empty($bill_details['data'])){
+              $d=$bill_details['data'];
+            }
+          }
+          $student_id=$d->student_id;
         ?>
 
           <div class="card card-danger">
             <form enctype="multipart/form-data" action="" method="post">
               <div class="card-header">
-                <h3 class="card-title">Add Student Bill Details</h3>
+                <h3 class="card-title"> Student Bill Payment</h3>
               </div>
               <div class="card-body">
                 <div class="row ">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label>Student:</label><br>
+                      <label>Student:</label>
+                      <select class="custom-select mr-sm-2" id="">
                         <?php
-                          $student_ddata=$mysqli->common_select_query("SELECT student.id,student.name,student.contact,seat.rent,seat.seat_no FROM `student` join seat on seat.id=student.seat_id where student.id=$student_id");
-                          if(!$student_ddata['error']){
-                            
-                        ?>
-                        <input type="hidden" name="student_id" value="<?= $student_id ?>">
-                        <?= $student_ddata['data'][0]->name ?> (<?= $student_ddata['data'][0]->contact?>)
-                        <?php }  ?>
+                            $data=$mysqli->common_select('student');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option <?= $student_id==$dt->id?"selected":"disabled" ?> value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
+                          <?php } } ?>
+                        </select>
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Year:</label>
-                      <select class="custom-select mr-sm-2" id="" name="bill_year">
+                      <select class="custom-select mr-sm-2" id="">
                       <?php 
                         $year_start  = 2023;
                         $year_end = date('Y') + 1; 
+                        $selected_year=date('Y',strtotime($d->bill_month));
                         for ($i_year = $year_start; $i_year <= $year_end; $i_year++) {
                             $selected = $selected_year == $i_year ? ' selected' : 'disabled';
                             echo '<option value="'.$i_year.'"'.$selected.'>'.$i_year.'</option>'."\n";
@@ -83,8 +85,9 @@
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Month:</label>
-                      <select class="custom-select mr-sm-2" id="" name="bill_month">
+                      <select class="custom-select mr-sm-2" id="">
                       <?php
+                        $selected_month=date('m',strtotime($d->bill_month));
                         for ($i_month = 1; $i_month <= 12; $i_month++) { 
                             $selected = $selected_month == $i_month ? ' selected' : 'disabled';
                             echo '<option value="'.$i_month.'"'.$selected.'>'. date('F', mktime(0,0,0,$i_month)).'</option>'."\n";
@@ -102,56 +105,66 @@
                         <th>Facility</th>
                         <th>Bill Type</th>
                         <th>Sub Total</th>
-                        <th>Total</th>
                       </tr>
                       </thead>
                       <tbody>
                         <?php
-                          $data=$mysqli->common_select_query("SELECT facility.name as fac,facility.amount,facility.count_type,facility.id FROM `student_facility` join facility on facility.id=student_facility.facility_id where student_facility.student_id=$student_id ");
+                          $data=$mysqli->common_select_query("SELECT facility.name as fac,student_monthly_bill_details.amount,facility.amount as famt,facility.count_type, student_monthly_bill_details.facility_id FROM `student_monthly_bill_details` left join facility on facility.id=student_monthly_bill_details.facility_id where student_monthly_bill_details.bill_id=$bill_id");
                             $totalamount=0;
                             foreach($data['data'] as $d){
-                        ?>
+                              if($d->facility_id==0){
+                                ?>
+                                  <tr>
+                                    <td>Room Rent (<?= $d->amount ?>)</td>
+                                    <td>Monthly</td>
+                                    <td>
+                                        1 x <?= $d->amount ?> = <?= $d->amount ?>
+                                    
+                                      <?php  $amount=$d->amount; $totalamount+=$amount; ?>
+                                    </td>
+                                  </tr>
+                                <?php }else{ ?>
                               <tr>
-                                <td><?= $d->fac ?> (<?= $d->amount ?>) </td>
+                                <td><?= $d->fac ?> (<?= $d->famt ?>) </td>
                                 <td><?= $d->count_type==1?"Daily":"Monthly" ?></td>
                                 <td>
                                   <?php
                                     $totaldays=cal_days_in_month(CAL_GREGORIAN,$selected_month,$selected_year);
                                     $qty=$d->count_type==1?$totaldays:1;
-                                    echo $qty." x ".$d->amount." = ".$qty*$d->amount;
+                                    echo $qty." x ".$d->famt." = ".$qty*$d->famt;
                                   ?>
                                   
-                                </td>
-                                <td>
-                                  <?php  $amount=$qty*$d->amount; $totalamount+=$amount; ?>
-                                  <?=  $amount; ?>
-                                  <input type="hidden" name="amount[]" value="<?= $amount ?>">
-                                  <input type="hidden" name="facility_id[]" value="<?= $d->id ?>">
+                                
+                                  <?php 
+                                  $amount=$qty*$d->famt;
+                                  $totalamount+=$amount; ?>
                                 </td>
                               </tr>
-                        <?php } ?>
-                              <tr>
-                                <td>Room Rent (<?= $student_ddata['data'][0]->rent ?>)</td>
-                                <td>Monthly</td>
-                                <td>
-                                    1 x <?= $student_ddata['data'][0]->rent ?> = <?= $student_ddata['data'][0]->rent ?>
-                                </td>
-                                <td>
-                                  <?php  $amount=$student_ddata['data'][0]->rent; $totalamount+=$amount; ?>
-                                  <?=  $amount; ?>
-                                  <input type="hidden" name="amount[]" value="<?= $amount ?>">
-                                  <input type="hidden" name="facility_id[]" value="0">
-                                </td>
-                              </tr>
+                        <?php }} ?>
                       </tbody>
                       <tfoot>
                         <tr>
-                          <td colspan="2"></td>
+                          <td></td>
                           <td> Total: </td>
-                          <td>
-                            <input type="hidden" name="total" value="<?= $totalamount ?>">
-                            <?= $totalamount ?>
-                          </td>
+                          <td><?= $totalamount ?></td>
+                        </tr>
+                        <tr>
+                          <td ></td>
+                          <td> Pay: </td>
+                          <td><?= $already_pay ?></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td> Due: </td>
+                          <td><?= $due=$totalamount - $already_pay ?></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td> Pay Now: </td>
+                          <td> 
+                            <input type="text" name="pay_amount" class="form-control" value="<?= $totalamount - $already_pay ?>">
+                            <input type="hidden" name="bill_id" class="form-control" value="<?= $bill_id ?>">
+                           </td>
                         </tr>
                       </tfoot>
                     </table>
@@ -166,20 +179,14 @@
                 <!-- Date dd/mm/yyyy -->
                 <?php
                   if($_POST){
-                    $pdata['student_id']=$_POST['student_id'];
-                    $pdata['bill_month']=$_POST['bill_year']."-".$_POST['bill_month']."-28";
-                    $pdata['amount']=$_POST['total'];
-                    $pdata['bill_status']=0;
-                    $pdata['created_at']=date('Y-m-d H:i:s');
-                    $rs=$mysqli->common_create('student_monthly_bill',$pdata);
+                    $_POST['created_at']=date('Y-m-d H:i:s');
+                    $rs=$mysqli->common_create('student_payment',$_POST);
                       if(!$rs['error']){
-                        if($_POST['facility_id']){
-                          foreach($_POST['facility_id'] as $i=>$m){
-                            $bdt['bill_id']=$rs['data'];
-                            $bdt['facility_id']=$m;
-                            $bdt['bill_month']=$_POST['bill_year']."-".$_POST['bill_month']."-28";
-                            $bdt['amount']=$_POST['amount'][$i];
-                            $rsm=$mysqli->common_create('student_monthly_bill_details',$bdt);
+                        if($due>0){
+                          $pamt=$_POST['pay_amount'] - $due;
+                          if($pamt==0){
+                            $updata['bill_status']=1;
+                            $rsm=$mysqli->common_update('student_monthly_bill',$updata,$where);
                           }
                         }
                       echo "<script>window.location='student_bill_view.php?student_id=".$student_id."'
