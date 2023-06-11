@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Room</h1>
+            <h1 class="m-0">Rooms</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">View All Rooms</h3>
+            <h3 class="card-title">Viewing All Rooms</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -35,10 +35,11 @@
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
+                <th>#SL</th>
                 <th>Room No</th>
-                <th>Aircondition</th>
+                <th>Air Condition</th>
                 <th>Wifi</th>
+                <th>Action</th>
               </tr>
               </thead>
               <tbody>

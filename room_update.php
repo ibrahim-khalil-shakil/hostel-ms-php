@@ -47,16 +47,16 @@
                 <div class="row ">
                   <div class="col-sm-4">
                     <div class="form-group">
-                      <label>Room Number:</label>
+                      <label>Room No:</label>
                       <input type="text" name="room_no" class="form-control" placeholder="Room No. " value="<?= $d->room_no ?>">
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">
-                      <label>Aircondition:</label>
+                      <label>Air Condition:</label>
                       <select class="custom-select mr-sm-2" id="" name="aircondition" value="<?= $d->aircondition ?>">
-                        <option selected value="AC">AC</option>
-                        <option value="Non-AC">Non-AC</option>
+                        <option value="AC"<?= ($d->aircondition=="AC")?'selected':'' ?>>AC</option>
+                        <option value="Non-AC"<?= ($d->aircondition=="Non-AC")?'selected':'' ?>>Non-AC</option>
                       </select>
                     </div>
                   </div>
@@ -64,8 +64,8 @@
                     <div class="form-group">
                       <label>Wifi:</label>
                       <select class="custom-select mr-sm-2" id="" name="wifi" value="<?= $d->wifi ?>">
-                        <option selected value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="Yes"<?= ($d->wifi=="Yes")?'selected':'' ?>>Yes</option>
+                        <option value="No"<?= ($d->wifi=="No")?'selected':'' ?>>No</option>
                       </select>
                     </div>
                   </div>

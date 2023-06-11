@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Add Seat</h1>
+            <h1 class="m-0">Add a New Seat</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -36,7 +36,7 @@
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Room Id:</label>
+                        <label>Room Number:</label>
                         <select class="custom-select mr-sm-2" id="" name="room_id">
                           <?php
                             $data=$mysqli->common_select('room');
@@ -57,7 +57,7 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Rent:</label>
-                        <input type="text" name="rent" class="form-control" placeholder="$0000">
+                        <input type="text" name="rent" class="form-control" placeholder="tk">
                       </div>
                     </div>
                     <div class="col-sm-12">

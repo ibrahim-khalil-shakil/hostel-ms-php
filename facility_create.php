@@ -30,14 +30,14 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Add New Facility</h3>
+                  <h3 class="card-title">Adding a New Facility</h3>
                 </div>
                 <div class="card-body">
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Name:</label>
-                        <input type="text" name="name" class="form-control" placeholder="Enter Name.">
+                        <label>Facility Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter Facility Name">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -54,7 +54,7 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Amount:</label>
-                        <input type="text" name="amount" class="form-control" placeholder="Enter Amount">
+                        <input type="text" name="amount" class="form-control" placeholder="tk">
                       </div>
                     </div>
                     <div class="col-sm-12">

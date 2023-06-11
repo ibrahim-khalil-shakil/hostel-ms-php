@@ -27,7 +27,7 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">View Students Data</h3>
+            <h3 class="card-title">Viewing Students Data</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -35,14 +35,14 @@
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
+                <th>#SL</th>
                 <th>Name</th>
                 <th>Father's Name</th>
                 <th>Mother's Name</th>
                 <th>Contact No</th>
                 <th>Guardian's Contact No</th>
                 <th>NID</th>
-                <th>Seat</th>
+                <th>Seat No</th>
                 <th>Action</th>
               </tr>
               </thead>

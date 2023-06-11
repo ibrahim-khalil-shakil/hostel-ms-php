@@ -49,7 +49,7 @@
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Room Id:</label>
+                        <label>Room Number:</label>
                         <select class="custom-select mr-sm-2" id="" name="room_id">
                         <?php
                             $data=$mysqli->common_select('room');

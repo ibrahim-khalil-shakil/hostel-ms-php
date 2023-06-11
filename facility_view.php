@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Facility</h1>
+            <h1 class="m-0">Facilities</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">View All Facilities</h3>
+            <h3 class="card-title">Viewing All Facilities</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -35,8 +35,8 @@
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
+                <th>#SL</th>
+                <th>Facility Name</th>
                 <th>Count Type</th>
                 <th>Amount</th>
               </tr>
@@ -52,7 +52,7 @@
                         <td><?= $d->id ?></td>
                         <td><?= $d->name ?></td>
                         <td><?= $d->count_type==1?"Daily":"Monthly" ?></td>
-                        <td><?= $d->amount ?></td>
+                        <td><?= $d->amount." tk" ?></td>
                         <td>
                         <a title="Update" href="facility_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>

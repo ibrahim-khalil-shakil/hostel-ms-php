@@ -36,13 +36,13 @@
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Room Number:</label>
+                        <label>Room No:</label>
                         <input type="text" name="room_no" class="form-control" placeholder="Room No.">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Aircondition:</label>
+                        <label>Air Condition:</label>
                         <select class="custom-select mr-sm-2" id="" name="aircondition">
                             <option selected value="AC">AC</option>
                             <option value="Non-AC">Non-AC</option>

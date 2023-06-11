@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Seat:</label>
+                        <label>Seat No:</label>
                         <select class="custom-select mr-sm-2" id="" name="seat_id">
                           <?php
                             $data=$mysqli->common_select('seat');
