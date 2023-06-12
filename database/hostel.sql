@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 06:50 AM
+-- Generation Time: Jun 12, 2023 at 08:05 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,7 +45,8 @@ CREATE TABLE `account_head` (
 
 INSERT INTO `account_head` (`id`, `head_name`, `head_code`, `account_type`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
 (1, 'Raihan', '101', 'Expense', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2, 'Raihan Shazzad', '11223344', 'Income', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+(2, 'Raihan Shazzad', '112', 'Income', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(3, 'Ibrahim Khalil', '222', 'Income', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -309,8 +310,10 @@ CREATE TABLE `transaction` (
 INSERT INTO `transaction` (`id`, `account_head_id`, `amount`, `transaction_date`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
 (1, 1, '3500.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-12 06:15:12'),
 (2, 1, '2222.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-12 06:29:50'),
-(3, 1, '3000.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(4, 1, '2222.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+(3, 1, '4000.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(4, 1, '2222.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(5, 1, '2222.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(6, 3, '4000.00', '2023-06-12', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -428,7 +431,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account_head`
 --
 ALTER TABLE `account_head`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `facility`
@@ -494,7 +497,7 @@ ALTER TABLE `student_payment`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
