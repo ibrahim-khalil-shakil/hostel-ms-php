@@ -46,17 +46,6 @@
                               <option value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
                           <?php } } ?>
                         </select>
-                      <label>Student ID:</label>
-                      <select class="custom-select mr-sm-2" id="" name="student_id">
-                        <?php
-                        $data = $mysqli->common_select('student');
-                        if (!$data['error']) {
-                          foreach ($data['data'] as $dt) {
-                        ?>
-                            <option value="<?= $dt->id ?>"><?= $dt->id ?></option>
-                        <?php }
-                        } ?>
-                      </select>
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -71,17 +60,6 @@
                               <option value="<?= $dt->id ?>"><?= $dt->name ?></option>
                           <?php } } ?>
                         </select>
-                      <label>Facility ID:</label>
-                      <select class="custom-select mr-sm-2" id="" name="facility_id">
-                        <?php
-                        $data = $mysqli->common_select('facility');
-                        if (!$data['error']) {
-                          foreach ($data['data'] as $dt) {
-                        ?>
-                            <option value="<?= $dt->id ?>"><?= $dt->id ?></option>
-                        <?php }
-                        } ?>
-                      </select>
                     </div>
                   </div>
                   <div class="col-sm-12">
