@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Transaction</h1>
+            <h1 class="m-0">Expense</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,11 +27,11 @@
         
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">View All Transactions</h3>
+            <h3 class="card-title">View All Expense</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <a href="transaction_create.php" class="btn btn-success form-control mb-2">Add New Transaction</a>
+            <a href="expense_create.php" class="btn btn-success form-control mb-2">Add New Expense</a>
             <table id="datatable" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -55,10 +55,10 @@
                         <td><?= $d->amount ?></td>
                         <td><?= $d->transaction_date ?></td>
                         <td>
-                        <a title="Update" href="transaction_update.php?id=<?= $d->id ?>">
+                        <a title="Update" href="expense_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>
-                          <a title="Delete" class="text-danger" href="transaction_delete.php?id=<?= $d->id ?>">
+                          <a title="Delete" class="text-danger" href="expense_delete.php?id=<?= $d->id ?>">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>

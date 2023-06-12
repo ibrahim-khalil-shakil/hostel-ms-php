@@ -90,11 +90,25 @@
              <p>Account Head</p>
            </a>
          </li>
-         <li class="nav-item">
-           <a href="<?= $base_url ?>transaction_view.php" class="nav-link">
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa-sharp fa-solid fa-money-bill-transfer nav-icon"></i>
-             <p>Transaction</p>
+             Transaction
            </a>
+           <ul class="dropdown-menu sidebarcolor" aria-labelledby="dropdownMenu">
+             <li class="dropdown-item nav-item sidebarcolorhover" href="<?= $base_url ?>transaction_view.php">
+               <a href="<?= $base_url ?>income_view.php" class="nav-link">
+                 <i class="fa-solid fa-sack-dollar nav-icon"></i>
+                 <p>Income</p>
+               </a>
+             </li>
+             <li class="dropdown-item nav-item sidebarcolorhover" href="<?= $base_url ?>transaction_view.php">
+               <a href="<?= $base_url ?>expense_view.php" class="nav-link">
+                 <i class="fa-solid fa-hand-holding-dollar nav-icon"></i>
+                 <p>Expense</p>
+               </a>
+             </li>
+           </ul>
          </li>
 
 
@@ -106,3 +120,13 @@
    </div>
    <!-- /.sidebar -->
  </aside>
+
+ <style>
+   .sidebarcolor {
+     background-color: #343A40;
+   }
+
+   .sidebarcolorhover:hover {
+     background-color: #494E53;
+   }
+ </style>

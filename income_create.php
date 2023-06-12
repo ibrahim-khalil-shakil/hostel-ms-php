@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Upadte Transaction</h1>
+            <h1 class="m-0">Add New Income</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,27 +30,14 @@
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
-                  <h3 class="card-title">Edit Transaction Details</h3>
+                  <h3 class="card-title">Add Income Details</h3>
                 </div>
-
-                <?php
-                  $where['id']=$_GET['id'];
-                  $data=$mysqli->common_select('transaction','*',$where);
-                 
-                  if(!$data['error'] && count($data['data'])>0)
-                    $d=$data['data'][0];
-                  else{
-                    echo "<h2 class='text-danger text-center'>This url is not correct</h2>";
-                    exit;
-                  }
-                ?>
-
                 <div class="card-body">
                   <div class="row ">
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Account Head Id:</label>
-                        <select class="custom-select mr-sm-2" id="" name="account_head_id" value="<?= $d->account_head_id ?>">
+                        <select class="custom-select mr-sm-2" id="" name="account_head_id">
                             <optgroup label="Choose...">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -68,13 +55,13 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Amount:</label>
-                        <input type="text" name="amount" class="form-control" placeholder="Seat No" value="<?= $d->amount ?>">
+                        <input type="text" name="amount" class="form-control" placeholder="Seat No">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label>Transaction Date:</label>
-                        <input type="date" name="transaction_date" class="form-control" value="<?= $d->transaction_date ?>">
+                        <input type="date" name="transaction_date" class="form-control">
                       </div>
                     </div>
                     <div class="col-sm-12">
@@ -87,13 +74,14 @@
 
 <?php
   if($_POST){
-    $rs=$mysqli->common_update('transaction',$_POST,$where);
-   if(!$rs['error']){
-     echo "<script>window.location='transaction_view.php'</script>";
-   }else{
-       echo $rs['error'];
-   }
- }
+     
+    $rs=$mysqli->common_create('transaction',$_POST);
+    if(!$rs['error']){
+      echo "<script>window.location='income_view.php'</script>";
+    }else{
+        echo $rs['error'];
+    }
+  }
 ?>
                 </div>
                 
