@@ -39,13 +39,14 @@
                       <label>Student:</label>
                       <select class="custom-select mr-sm-2" id="" name="student_id">
                         <?php
-                            $data=$mysqli->common_select('student');
-                            if(!$data['error']){
-                              foreach($data['data'] as $dt){
-                          ?>
-                              <option value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
-                          <?php } } ?>
-                        </select>
+                        $data = $mysqli->common_select('student');
+                        if (!$data['error']) {
+                          foreach ($data['data'] as $dt) {
+                        ?>
+                            <option value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact ?>)</option>
+                        <?php }
+                        } ?>
+                      </select>
                     </div>
                   </div>
                   <div class="col-sm-6">
@@ -53,13 +54,14 @@
                       <label>Facility:</label>
                       <select multiple class="custom-select mr-sm-2" id="" name="facility_id[]">
                         <?php
-                            $data=$mysqli->common_select('facility');
-                            if(!$data['error']){
-                              foreach($data['data'] as $dt){
-                          ?>
-                              <option value="<?= $dt->id ?>"><?= $dt->name ?></option>
-                          <?php } } ?>
-                        </select>
+                        $data = $mysqli->common_select('facility');
+                        if (!$data['error']) {
+                          foreach ($data['data'] as $dt) {
+                        ?>
+                            <option value="<?= $dt->id ?>"><?= $dt->name ?></option>
+                        <?php }
+                        } ?>
+                      </select>
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -72,9 +74,9 @@
 
                 <?php
                 if ($_POST) {
-                  foreach($_POST['facility_id'] as $fac){
-                    $sd['facility_id']=$fac;
-                    $sd['student_id']=$_POST['student_id'];
+                  foreach ($_POST['facility_id'] as $fac) {
+                    $sd['facility_id'] = $fac;
+                    $sd['student_id'] = $_POST['student_id'];
                     $rs = $mysqli->common_create('student_facility', $sd);
                   }
                   if (!$rs['error']) {

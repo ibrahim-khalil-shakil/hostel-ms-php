@@ -52,12 +52,13 @@
                                             <label>Student:</label>
                                             <select class="custom-select mr-sm-2" id="" name="student_id">
                                                 <?php
-                                                    $data=$mysqli->common_select('student');
-                                                    if(!$data['error']){
-                                                    foreach($data['data'] as $dt){
+                                                $data = $mysqli->common_select('student');
+                                                if (!$data['error']) {
+                                                    foreach ($data['data'] as $dt) {
                                                 ?>
-                                                    <option <?= $d->student_id==$dt->id?"selected":"" ?> value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact?>)</option>
-                                                <?php } } ?>
+                                                        <option <?= $d->student_id == $dt->id ? "selected" : "" ?> value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact ?>)</option>
+                                                <?php }
+                                                } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -65,13 +66,14 @@
                                         <div class="form-group">
                                             <label>Facility:</label>
                                             <select class="custom-select mr-sm-2" id="" name="facility_id">
-                                            <?php
-                                                $data=$mysqli->common_select('facility');
-                                                if(!$data['error']){
-                                                foreach($data['data'] as $dt){
-                                            ?>
-                                                <option <?= $d->facility_id==$dt->id?"selected":"" ?> value="<?= $dt->id ?>"><?= $dt->name ?></option>
-                                            <?php } } ?>
+                                                <?php
+                                                $data = $mysqli->common_select('facility');
+                                                if (!$data['error']) {
+                                                    foreach ($data['data'] as $dt) {
+                                                ?>
+                                                        <option <?= $d->facility_id == $dt->id ? "selected" : "" ?> value="<?= $dt->id ?>"><?= $dt->name ?></option>
+                                                <?php }
+                                                } ?>
                                             </select>
                                         </div>
                                     </div>
