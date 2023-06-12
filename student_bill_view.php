@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= $base_url?>dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?= $base_url?>index.php">Home</a></li>
               <li class="breadcrumb-item active">Bill List</li>
             </ol>
           </div><!-- /.col -->
