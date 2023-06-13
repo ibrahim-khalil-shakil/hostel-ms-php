@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 09:03 PM
+-- Generation Time: Jun 13, 2023 at 07:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -171,6 +171,8 @@ CREATE TABLE `sign_in` (
   `contact_no` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `cpassword` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `terms` tinyint(1) NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -178,8 +180,8 @@ CREATE TABLE `sign_in` (
 -- Dumping data for table `sign_in`
 --
 
-INSERT INTO `sign_in` (`id`, `name`, `email`, `contact_no`, `password`, `cpassword`, `deleted_at`) VALUES
-(1, 'Ibrahim Khalil', 'admin@gmail.com', '0123456789', 'adcd7048512e64b48da55b027577886ee5a36350', '', '0000-00-00 00:00:00');
+INSERT INTO `sign_in` (`id`, `name`, `email`, `contact_no`, `password`, `cpassword`, `image`, `terms`, `deleted_at`) VALUES
+(1, 'Ibrahim Khalil', 'ibrahim@gmail.com', '0123456789', 'adcd7048512e64b48da55b027577886ee5a36350', '', 'iks.png', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -406,13 +408,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `email`, `contact`, `password`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
-(1, 'Raihan Shazzad', 'admin@gmail.com', '01245855858', 'b22c388e12f63e7bf7f1d0f59b5c66e7015eb1e8', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '2023-06-07 08:19:58');
-
---
 -- Indexes for dumped tables
 --
 
@@ -574,7 +569,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

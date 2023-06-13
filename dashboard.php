@@ -32,7 +32,7 @@
               <div class="inner">
                 <h3>150</h3>
 
-                <p>New Orders</p>
+                <p>New Students</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -47,7 +47,7 @@
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Seat Booking Rate</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -77,7 +77,7 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+                <p>Total Rooms</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -97,7 +97,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Sales
+                  Facilities
                 </h3>
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto">
@@ -467,7 +467,7 @@
               <div class="card-header border-0">
                 <h3 class="card-title">
                   <i class="fas fa-map-marker-alt mr-1"></i>
-                  Visitors
+                  Hostel MS
                 </h3>
                 <!-- card tools -->
                 <div class="card-tools">
@@ -488,17 +488,17 @@
                 <div class="row">
                   <div class="col-4 text-center">
                     <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
+                    <div class="text-white">Seats</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">
                     <div id="sparkline-2"></div>
-                    <div class="text-white">Online</div>
+                    <div class="text-white">Rooms</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">
                     <div id="sparkline-3"></div>
-                    <div class="text-white">Sales</div>
+                    <div class="text-white">Bookings</div>
                   </div>
                   <!-- ./col -->
                 </div>
@@ -512,7 +512,7 @@
               <div class="card-header border-0">
                 <h3 class="card-title">
                   <i class="fas fa-th mr-1"></i>
-                  Sales Graph
+                  Transactions Graph
                 </h3>
 
                 <div class="card-tools">
@@ -534,21 +534,21 @@
                     <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
                            data-fgColor="#39CCCC">
 
-                    <div class="text-white">Mail-Orders</div>
+                    <div class="text-white">Facilities</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">
                     <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
                            data-fgColor="#39CCCC">
 
-                    <div class="text-white">Online</div>
+                    <div class="text-white">Income</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">
                     <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
                            data-fgColor="#39CCCC">
 
-                    <div class="text-white">In-Store</div>
+                    <div class="text-white">Expense</div>
                   </div>
                   <!-- ./col -->
                 </div>

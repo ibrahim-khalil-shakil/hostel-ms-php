@@ -30,7 +30,7 @@ $mysqli = new crud;
       <div class="card-body">
         <p class="login-box-msg">Register a new membership</p>
 
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="input-group mb-3">
             <input type="text" name="name" class="form-control" placeholder="Full name">
             <div class="input-group-append">
@@ -71,14 +71,23 @@ $mysqli = new crud;
               </div>
             </div>
           </div>
+          <div class="input-group mb-3">
+            <input type="file" name="image" class="form-control" accept="image/*">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-image"></span>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-8">
-              <!-- <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
-            </div> -->
+              <div class="icheck-primary">
+                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                <label for="agreeTerms">
+                  I agree to the <a href="#">terms</a>
+                </label>
+              </div>
             </div>
             <!-- /.col -->
             <div class="col-4">
@@ -92,11 +101,25 @@ $mysqli = new crud;
           $pass = trim($_POST['password']);
           $cpass = trim($_POST['cpassword']);
           if ($pass !== $cpass) {
-            echo "Both password are not same";
+            echo "Both passwords are not the same";
             exit;
           }
           $_POST['password'] = sha1(md5($_POST['password']));
           unset($_POST['cpassword']);
+
+          // Upload the image
+          if ($_FILES['image']['name']) {
+            $image = $_FILES['image']['name'];
+            $target = "upload/users/" . basename($image);
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+              $_POST['image'] = $image;
+            } else {
+              echo "Failed to upload the image.";
+              exit;
+            }
+          }
+
+          // Insert user data into the database
           $rs = $mysqli->common_create('sign_in', $_POST);
           if (!$rs['error']) {
             echo "<script>window.location='login.php'</script>";
@@ -104,10 +127,9 @@ $mysqli = new crud;
             echo $rs['error'];
           }
         }
-
         ?>
 
-        <a href="login" class="text-center">I already have a membership</a>
+        <a href="login.php" class="text-center">Already have a membership? Log In</a>
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
