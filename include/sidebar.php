@@ -16,9 +16,6 @@
         <?php } else { ?>
           <img src="<?= $base_url ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         <?php } ?>
-
-
-
       </div>
       <div class="info">
         <a href="#" class="d-block"><?= isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest' ?></a>
@@ -42,62 +39,148 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
         <li class="nav-item">
-          <a href="<?= $base_url ?>dashboard.php" class="nav-link ">
+          <a href="#" class=" nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p> Dashboard</p>
+            <p>
+              Dashboard
+              <i class="right fas fa-angle-left"></i>
+            </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>dashboard.php" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard Light</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>dashboard2.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard Dark</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= $base_url ?>room_view.php" class="nav-link" id="manage-rooms-link">
+          <a href="#" class="nav-link">
             <i class="fa-solid fa-house-chimney-window nav-icon"></i>
-            <p>Room</p>
+            <p>Mangae Room</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>room_view.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Rooms</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>room_create.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Rooms</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= $base_url ?>seat_view.php" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="fas fa-bed nav-icon"></i>
-            <p>Seat</p>
+            <p>Mangae Seats</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>seat_view.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View All Seats</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>seat_create.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add New Seat</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= $base_url ?>facility_view.php" class="nav-link" id="manage-rooms-link">
+          <a href="#" class="nav-link">
             <i class="fa-solid fa-shapes nav-icon"></i>
-            <p>Facility</p>
+            <p>Facilities</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>facility_view.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Facilities</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>facility_create.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Facility</p>
+              </a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="<?= $base_url ?>student_facility_view.php" class="nav-link">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
             <i class="fa-solid fa-diamond nav-icon"></i>
-            <p>Student Facility</p>
+            <p>Student Facilities</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>student_facility_view.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Student Facilities</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>student_facility_create.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Student Facility</p>
+              </a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="<?= $base_url ?>student_view.php" class="nav-link">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
             <i class=" fa-solid fa-person nav-icon"></i>
-            <p>Student</p>
+            <p>Student Details</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>student_view.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View All Student Details</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>student_create.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add New Student</p>
+              </a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item ">
-          <a href="<?= $base_url ?>account_head_view.php" class="nav-link">
-            <i class="fa-sharp fa-solid fa-award nav-icon"></i>
-            <p>Account Head</p>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
             <i class="fa-sharp fa-solid fa-money-bill-transfer nav-icon"></i>
-            Transaction
+            <p>Transaction</p>
+            <i class="right fas fa-angle-left"></i>
           </a>
-          <ul class="dropdown-menu sidebarcolor" aria-labelledby="dropdownMenu">
-            <li class="dropdown-item nav-item sidebarcolorhover" href="<?= $base_url ?>transaction_view.php">
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
               <a href="<?= $base_url ?>income_view.php" class="nav-link">
                 <i class="fa-solid fa-sack-dollar nav-icon"></i>
                 <p>Income</p>
               </a>
             </li>
-            <li class="dropdown-item nav-item sidebarcolorhover" href="<?= $base_url ?>transaction_view.php">
+            <li class="nav-item">
               <a href="<?= $base_url ?>expense_view.php" class="nav-link">
                 <i class="fa-solid fa-hand-holding-dollar nav-icon"></i>
                 <p>Expense</p>
@@ -105,29 +188,25 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item ">
-          <a href="<?= $base_url ?>user_view.php" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
-            <p>User</p>
+        <li class="nav-item">
+          <a href="<?= $base_url ?>account_head_view.php" class="nav-link">
+            <i class="fa-sharp fa-solid fa-award nav-icon"></i>
+            <p>
+              Account Head
+            </p>
           </a>
         </li>
-
-
-
-
+        <li class="nav-item">
+          <a href="<?= $base_url ?>user_view.php" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              User
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->
 </aside>
-
-<style>
-  .sidebarcolor {
-    background-color: #343A40;
-  }
-
-  .sidebarcolorhover:hover {
-    background-color: #494E53;
-  }
-</style>
