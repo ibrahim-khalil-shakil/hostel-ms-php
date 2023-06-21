@@ -39,7 +39,7 @@
                 <th>Room No</th>
                 <th>Air Condition</th>
                 <th>Wifi</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -54,7 +54,7 @@
                         <td><?= $d->room_no ?></td>
                         <td><?= $d->aircondition ?></td>
                         <td><?= $d->wifi?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="room_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

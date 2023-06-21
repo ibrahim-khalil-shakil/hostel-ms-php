@@ -39,7 +39,7 @@
                 <th>Room Number</th>
                 <th>Seat No</th>
                 <th>Rent</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -56,7 +56,7 @@
                         <td><?= $d->room_no ?></td>
                         <td><?= $d->seat_no ?></td>
                         <td><?= $d->rent." tk" ?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="seat_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

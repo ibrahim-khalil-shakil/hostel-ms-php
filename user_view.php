@@ -40,6 +40,7 @@
                 <th>Email</th>
                 <th>Contact</th>
                 <th>Password</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -55,7 +56,7 @@
                         <td><?= $d->email ?></td>
                         <td><?= $d->contact ?></td>
                         <td><?= $d->password ?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="user_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

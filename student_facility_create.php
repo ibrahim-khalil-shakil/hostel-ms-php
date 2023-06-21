@@ -98,5 +98,5 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
-</div>
+</div> 
 <?php require_once('include/footer.php'); ?>

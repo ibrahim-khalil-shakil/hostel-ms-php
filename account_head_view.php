@@ -39,6 +39,7 @@
                 <th>Head Name</th>
                 <th>Head Code</th>
                 <th>Account Type</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -53,7 +54,7 @@
                         <td><?= $d->head_name ?></td>
                         <td><?= $d->head_code ?></td>
                         <td><?= $d->account_type ?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="account_head_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

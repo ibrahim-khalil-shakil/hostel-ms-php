@@ -38,7 +38,7 @@
                 <th>#SL</th>
                 <th>Student</th>
                 <th>Facility</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -56,7 +56,7 @@
                     <td><?= $d->id ?></td>
                     <td><?= $d->name ?> (<?= $d->contact ?>)</td>
                     <td><?= $d->facilities ?></td>
-                    <td>
+                    <td class="text-center">
                       <a title="Update" href="student_facility_update.php?id=<?= $d->id ?>">
                         <i class="fa fa-edit"></i>
                       </a>

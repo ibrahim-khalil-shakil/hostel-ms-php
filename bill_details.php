@@ -8,7 +8,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Income</h1>
+          <h1 class="m-0">Student Bill Details</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -27,46 +27,40 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">View All Incomes</h3>
+          <h3 class="card-title">Viewing Bill List</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-          <a href="income_create.php" class="btn btn-success form-control mb-2">Add New Income</a>
           <table id="datatable" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Account Head ID</th>
-                <th>Amount</th>
-                <th>Transaction Date</th>
-                <th class="text-center">Action</th>
+                <th>#SL</th>
+                <th>Student's Name</th>
+                <th>Seat No.</th>
+                <th>Bill List</th>
               </tr>
             </thead>
             <tbody>
               <?php
-              $data = $mysqli->common_select('transaction');
+              $data = $mysqli->common_select_query("SELECT student.*,seat.seat_no FROM `student`
+                  join seat on seat.id=student.seat_id
+                  WHERE student.deleted_at is null");
               if (!$data['error']) {
                 foreach ($data['data'] as $d) {
 
               ?>
                   <tr>
                     <td><?= $d->id ?></td>
-                    <td><?= $d->account_head_id ?></td>
-                    <td><?= $d->amount ?></td>
-                    <td><?= $d->transaction_date ?></td>
-                    <td class="text-center">
-                      <a title="Update" href="income_update.php?id=<?= $d->id ?>">
-                        <i class="fa fa-edit"></i>
-                      </a>
-                      <a title="Delete" class="text-danger" href="income_delete.php?id=<?= $d->id ?>">
-                        <i class="fa fa-trash"></i>
+                    <td><?= $d->name ?></td>
+                    <td><?= $d->seat_no ?></td>
+                    <td>
+                      <a title="Bill List" href="student_bill_view.php?student_id=<?= $d->id ?>">
+                        <i class="fa fa-list"></i>  View Bill Status of <?= $d->name ?>
                       </a>
                     </td>
                   </tr>
-              <?php
-                }
-              }
-              ?>
+              <?php }
+              } ?>
             </tbody>
           </table>
         </div><!-- /.card-body -->

@@ -40,44 +40,29 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="#" class=" nav-link active">
+          <a href="dashboard.php" class=" nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
-              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="<?= $base_url ?>dashboard.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Dashboard Light</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= $base_url ?>dashboard2.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Dashboard Dark</p>
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-house-chimney-window nav-icon"></i>
-            <p>Mangae Room</p>
+            <p>Manage Room</p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>room_view.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fa-solid fa-door-open nav-icon"></i>
                 <p>View Rooms</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>room_create.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fa-solid fa-house-circle-check nav-icon"></i>
                 <p>Add Rooms</p>
               </a>
             </li>
@@ -86,19 +71,19 @@
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="fas fa-bed nav-icon"></i>
-            <p>Mangae Seats</p>
+            <p>Manage Seats</p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>seat_view.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fa-solid fa-bed-pulse nav-icon"></i>
                 <p>View All Seats</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>seat_create.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fa-solid fa-chair nav-icon"></i>
                 <p>Add New Seat</p>
               </a>
             </li>
@@ -106,20 +91,20 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fa-solid fa-shapes nav-icon"></i>
+            <i class="fa-solid fa-cube nav-icon"></i>
             <p>Facilities</p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>facility_view.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-icons nav-icon"></i>
                 <p>View Facilities</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>facility_create.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <i class="fa-solid fa-crosshairs nav-icon"></i>
                 <p>Add Facility</p>
               </a>
             </li>
@@ -127,20 +112,20 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fa-solid fa-diamond nav-icon"></i>
+            <i class="fa-solid fa-people-roof nav-icon"></i>
             <p>Student Facilities</p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>student_facility_view.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-universal-access nav-icon"></i>
                 <p>View Student Facilities</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>student_facility_create.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-person-shelter nav-icon"></i>
                 <p>Add Student Facility</p>
               </a>
             </li>
@@ -148,21 +133,27 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class=" fa-solid fa-person nav-icon"></i>
+            <i class="fa-solid fa-people-group nav-icon"></i>
             <p>Student Details</p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>student_view.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-users-between-lines nav-icon"></i>
                 <p>View All Student Details</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>student_create.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa-solid fa-user-graduate nav-icon"></i>
                 <p>Add New Student</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>bill_details.php" class="nav-link">
+                <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+                <p>View Student Bills</p>
               </a>
             </li>
           </ul>

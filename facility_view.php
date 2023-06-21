@@ -39,6 +39,7 @@
                 <th>Facility Name</th>
                 <th>Count Type</th>
                 <th>Amount</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -53,7 +54,7 @@
                         <td><?= $d->name ?></td>
                         <td><?= $d->count_type==1?"Daily":"Monthly" ?></td>
                         <td><?= $d->amount." tk" ?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="facility_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

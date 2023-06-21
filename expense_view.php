@@ -39,7 +39,7 @@
                 <th>Account Head ID</th>
                 <th>Amount</th>
                 <th>Transaction Date</th>
-                <th>Action</th>
+                <th class="text-center">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -54,7 +54,7 @@
                         <td><?= $d->account_head_id ?></td>
                         <td><?= $d->amount ?></td>
                         <td><?= $d->transaction_date ?></td>
-                        <td>
+                        <td class="text-center">
                         <a title="Update" href="expense_update.php?id=<?= $d->id ?>">
                             <i class="fa fa-edit"></i>
                           </a>

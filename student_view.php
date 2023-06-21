@@ -43,8 +43,8 @@
                 <th>Guardian's Contact No</th>
                 <th>NID</th>
                 <th>Seat No</th>
-                <th>Bill List</th>
-                <th>Action</th>
+                <th class="text-center">Bill List</th>
+                <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -65,12 +65,12 @@
                     <td><?= $d->guardian_contact ?></td>
                     <td><?= $d->nid_bc ?></td>
                     <td><?= $d->seat_no ?></td>
-                    <td>
+                    <td class="text-center">
                       <a title="Bill List" href="student_bill_view.php?student_id=<?= $d->id ?>">
                         <i class="fa fa-list"></i>
                       </a>
                     </td>
-                    <td>
+                    <td class="text-center">
                       <a title="Update" href="student_update.php?id=<?= $d->id ?>">
                         <i class="fa fa-edit"></i>
                       </a>
