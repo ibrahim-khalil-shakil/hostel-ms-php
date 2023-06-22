@@ -22,7 +22,7 @@ $mysqli = new crud;
 </head>
 
 <body class="hold-transition register-page">
-  <div class="register-box w-auto shadow-lg">
+  <div class="register-box w-50 shadow-lg">
     <div class="card card-outline card-primary">
       <div class="card-header text-center py-0">
         <a href="<?= $base_url ?>assets/index2.html" class="h1"><b>Hostel <span class="h2"><b>Management System</b></span> <br></b>Admin Panel</a>
