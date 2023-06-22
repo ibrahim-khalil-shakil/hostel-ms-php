@@ -27,7 +27,7 @@ $mysqli = new crud;
 </head>
 
 <body class="hold-transition login-page">
-  <div class="login-box w-25 shadow-lg">
+  <div class="login-box w-auto shadow-lg">
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
