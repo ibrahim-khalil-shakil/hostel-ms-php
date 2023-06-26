@@ -45,5 +45,20 @@
 <script src="<?= $base_url?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= $base_url?>assets/dist/js/adminlte.js"></script>
+
+<script>
+  $(document).ready(function(){
+    var path = window.location.href;
+    $(".nav-link").each(function(){
+      var href = $(this).attr('href');
+      if (path === href){
+        $(this).addClass('active');
+        var parent = $(this).closest('.has-treeview');
+        parent.addClass('menu-open');
+        parent.find('.nav-link').first().addClass('active');
+      }
+    });
+  });
+</script>
 </body>
 </html>

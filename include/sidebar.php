@@ -40,14 +40,14 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="dashboard.php" class=" nav-link active">
+          <a href="dashboard.php" class=" nav-link ">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-house-chimney-window nav-icon"></i>
             <p>Manage Room</p>
@@ -68,7 +68,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fas fa-bed nav-icon"></i>
             <p>Manage Seats</p>
@@ -89,7 +89,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-cube nav-icon"></i>
             <p>Facilities</p>
@@ -110,7 +110,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-people-roof nav-icon"></i>
             <p>Student Facilities</p>
@@ -131,7 +131,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-people-group nav-icon"></i>
             <p>Student Details</p>
@@ -158,7 +158,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-sharp fa-solid fa-money-bill-transfer nav-icon"></i>
             <p>Transaction</p>
@@ -179,7 +179,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="<?= $base_url ?>account_head_view.php" class="nav-link">
             <i class="fa-sharp fa-solid fa-award nav-icon"></i>
             <p>
@@ -187,7 +187,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item has-treeview">
           <a href="<?= $base_url ?>user_view.php" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
