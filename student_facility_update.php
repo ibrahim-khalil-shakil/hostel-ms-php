@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add Student Facility</h1>
+                    <h1 class="m-0">Update Student Facility</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -65,18 +65,27 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Facility:</label>
-                                            <select class="custom-select mr-sm-2" id="" name="facility_id">
-                                                <?php
-                                                $data = $mysqli->common_select('facility');
-                                                if (!$data['error']) {
-                                                    foreach ($data['data'] as $dt) {
-                                                ?>
-                                                        <option <?= $d->facility_id == $dt->id ? "selected" : "" ?> value="<?= $dt->id ?>"><?= $dt->name ?></option>
-                                                <?php }
-                                                } ?>
-                                            </select>
+                                            <br>
+                                            <?php
+                                            $data = $mysqli->common_select('facility');
+                                            if (!$data['error']) {
+                                                foreach ($data['data'] as $dt) {
+                                                    $checked = "";
+                                                    if ($d->facility_id == $dt->id) {
+                                                        $checked = "checked";
+                                                    }
+                                            ?>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="facility_<?= $dt->id ?>" name="facility_id[]" value="<?= $dt->id ?>" <?= $checked ?>>
+                                                        <label class="custom-control-label" for="facility_<?= $dt->id ?>"><?= $dt->name ?></label>
+                                                    </div>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </div>
                                     </div>
+
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Save</button>
@@ -87,6 +96,7 @@
 
                                 <?php
                                 if ($_POST) {
+                                    $where['id'] = $_GET['id'];
                                     $rs = $mysqli->common_update('student_facility', $_POST, $where);
                                     if (!$rs['error']) {
                                         echo "<script>window.location='student_facility_view.php'</script>";
@@ -95,6 +105,7 @@
                                     }
                                 }
                                 ?>
+
                             </div>
 
                         </form>

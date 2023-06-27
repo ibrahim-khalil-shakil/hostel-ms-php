@@ -39,30 +39,30 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item">
-          <a href="dashboard.php" class=" nav-link ">
+        <li class="nav-item" style="background-color: rgba(255, 255, 255, .1);">
+          <a href="dashboard.php" class=" nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Dashboard
+              <b>Dashboard</b>
             </p>
           </a>
         </li>
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-house-chimney-window nav-icon"></i>
-            <p>Manage Room</p>
+            <p><b>Manage Room</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>room_view.php" class="nav-link">
-              <i class="fa-solid fa-door-open nav-icon"></i>
+                <i class="fa-solid fa-door-open nav-icon"></i>
                 <p>View Rooms</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>room_create.php" class="nav-link">
-              <i class="fa-solid fa-house-circle-check nav-icon"></i>
+                <i class="fa-solid fa-house-circle-check nav-icon"></i>
                 <p>Add Rooms</p>
               </a>
             </li>
@@ -71,19 +71,19 @@
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fas fa-bed nav-icon"></i>
-            <p>Manage Seats</p>
+            <p><b>Manage Seats</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="<?= $base_url ?>seat_view.php" class="nav-link">
-              <i class="fa-solid fa-bed-pulse nav-icon"></i>
+                <i class="fa-solid fa-bed-pulse nav-icon"></i>
                 <p>View All Seats</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>seat_create.php" class="nav-link">
-              <i class="fa-solid fa-chair nav-icon"></i>
+                <i class="fa-solid fa-chair nav-icon"></i>
                 <p>Add New Seat</p>
               </a>
             </li>
@@ -92,7 +92,7 @@
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-cube nav-icon"></i>
-            <p>Facilities</p>
+            <p><b>Facilities</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
@@ -104,7 +104,7 @@
             </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>facility_create.php" class="nav-link">
-              <i class="fa-solid fa-crosshairs nav-icon"></i>
+                <i class="fa-solid fa-crosshairs nav-icon"></i>
                 <p>Add Facility</p>
               </a>
             </li>
@@ -113,7 +113,7 @@
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-people-roof nav-icon"></i>
-            <p>Student Facilities</p>
+            <p><b>Student Facilities</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
@@ -134,7 +134,7 @@
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-solid fa-people-group nav-icon"></i>
-            <p>Student Details</p>
+            <p><b>Student Details</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
@@ -161,10 +161,16 @@
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="fa-sharp fa-solid fa-money-bill-transfer nav-icon"></i>
-            <p>Transaction</p>
+            <p><b>Transaction</b></p>
             <i class="right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= $base_url ?>invoice_list.php" class="nav-link">
+                <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
+                <p>Invoices</p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="<?= $base_url ?>income_view.php" class="nav-link">
                 <i class="fa-solid fa-sack-dollar nav-icon"></i>
@@ -177,13 +183,19 @@
                 <p>Expense</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="<?= $base_url ?>report_view.php" class="nav-link">
+                <i class="fa-solid fa-file-signature nav-icon"></i>
+                <p>Monthly Reports</p>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item has-treeview">
           <a href="<?= $base_url ?>account_head_view.php" class="nav-link">
             <i class="fa-sharp fa-solid fa-award nav-icon"></i>
             <p>
-              Account Head
+              <b>Account Head</b>
             </p>
           </a>
         </li>
@@ -191,7 +203,7 @@
           <a href="<?= $base_url ?>user_view.php" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              User
+              <b>User</b>
             </p>
           </a>
         </li>

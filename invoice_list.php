@@ -8,7 +8,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Student Facility</h1>
+          <h1 class="m-0">Invoice List</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -27,49 +27,36 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">View All Student Facility</h3>
+          <h3 class="card-title">Viewing Invoice List</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-          <a href="student_facility_create.php" class="btn btn-success form-control mb-2">Add New Student Facility</a>
           <table id="datatable" class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>#SL</th>
-                <th>Student</th>
-                <th>Facility</th>
-                <th class="text-center">Action</th>
+                <th>Student's Name</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <?php
-              $data = $mysqli->common_select_query("SELECT student.name, student.contact, GROUP_CONCAT(CONCAT(facility.name, ' (', facility.amount, ')') SEPARATOR '<br>') as facilities, student_facility.id 
-              FROM `student_facility` 
-              JOIN student ON student.id = student_facility.student_id 
-              JOIN facility ON facility.id = student_facility.facility_id 
-              GROUP BY student.id");
-
+              $data = $mysqli->common_select_query("SELECT * FROM student");
               if (!$data['error']) {
                 foreach ($data['data'] as $d) {
+
               ?>
                   <tr>
                     <td><?= $d->id ?></td>
-                    <td><?= $d->name ?> (<?= $d->contact ?>)</td>
-                    <td><?= $d->facilities ?></td>
-                    <td class="text-center">
-                      <a title="Update" href="student_facility_update.php?id=<?= $d->id ?>">
-                        <i class="fa fa-edit"></i>
-                      </a>
-                      <a title="Delete" class="text-danger" href="student_facility_delete.php?id=<?= $d->id ?>">
-                        <i class="fa fa-trash"></i>
+                    <td><?= $d->name ?></td>
+                    <td>
+                    <a title="Invoice" href="invoice.php?student_id=<?= $d->id ?>">
+                    View Invoice
                       </a>
                     </td>
                   </tr>
-              <?php
-                }
-              }
-              ?>
-
+              <?php }
+              } ?>
             </tbody>
           </table>
         </div><!-- /.card-body -->
@@ -100,7 +87,7 @@
       "responsive": true,
       "lengthChange": false,
       "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
+      "buttons": ["excel", "pdf", "colvis"]
     }).buttons().container().appendTo('#datatable_wrapper .col-md-6:eq(0)');
 
   });

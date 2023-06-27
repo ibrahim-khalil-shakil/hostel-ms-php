@@ -42,26 +42,32 @@
                         $data = $mysqli->common_select('student');
                         if (!$data['error']) {
                           foreach ($data['data'] as $dt) {
-                        ?>
+                            ?>
                             <option value="<?= $dt->id ?>"><?= $dt->name ?> (<?= $dt->contact ?>)</option>
-                        <?php }
-                        } ?>
+                            <?php
+                          }
+                        }
+                        ?>
                       </select>
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Facility:</label>
-                      <select multiple class="custom-select mr-sm-2" id="" name="facility_id[]">
-                        <?php
-                        $data = $mysqli->common_select('facility');
-                        if (!$data['error']) {
-                          foreach ($data['data'] as $dt) {
-                        ?>
-                            <option value="<?= $dt->id ?>"><?= $dt->name ?></option>
-                        <?php }
-                        } ?>
-                      </select>
+                      <br>
+                      <?php
+                      $data = $mysqli->common_select('facility');
+                      if (!$data['error']) {
+                        foreach ($data['data'] as $dt) {
+                          ?>
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="facility_<?= $dt->id ?>" name="facility_id[]" value="<?= $dt->id ?>">
+                            <label class="custom-control-label" for="facility_<?= $dt->id ?>"><?= $dt->name ?></label>
+                          </div>
+                          <?php
+                        }
+                      }
+                      ?>
                     </div>
                   </div>
                   <div class="col-sm-12">
@@ -70,24 +76,21 @@
                     </div>
                   </div>
                 </div>
-                <!-- Date dd/mm/yyyy -->
-
-                <?php
-                if ($_POST) {
-                  foreach ($_POST['facility_id'] as $fac) {
-                    $sd['facility_id'] = $fac;
-                    $sd['student_id'] = $_POST['student_id'];
-                    $rs = $mysqli->common_create('student_facility', $sd);
-                  }
-                  if (!$rs['error']) {
-                    echo "<script>window.location='student_facility_view.php'</script>";
-                  } else {
-                    echo $rs['error'];
-                  }
-                }
-                ?>
               </div>
-
+              <?php
+              if ($_POST) {
+                foreach ($_POST['facility_id'] as $fac) {
+                  $sd['facility_id'] = $fac;
+                  $sd['student_id'] = $_POST['student_id'];
+                  $rs = $mysqli->common_create('student_facility', $sd);
+                }
+                if (!$rs['error']) {
+                  echo "<script>window.location='student_facility_view.php'</script>";
+                } else {
+                  echo $rs['error'];
+                }
+              }
+              ?>
             </form>
             <!-- /.card-body -->
           </div>
@@ -98,5 +101,5 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
-</div> 
+</div>
 <?php require_once('include/footer.php'); ?>
