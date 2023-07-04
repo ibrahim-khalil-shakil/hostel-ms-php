@@ -168,6 +168,7 @@
                         </tr>
                       </tfoot>
                     </table>
+                    
                   </div>
 
                   <div class="col-sm-12">
