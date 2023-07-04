@@ -30,7 +30,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> XYZ Hostel
+                    <i class="fas fa-globe"></i> Hostel MS
                     <small class="float-right">Date: <?= date('M-d, Y') ?></small>
                   </h4>
                 </div>
@@ -41,10 +41,10 @@
                 <div class="col-sm-4 invoice-col">
                   From
                   <address>
-                    <strong>XYZ Hostel</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
-                    Phone: (804) 123-5432<br>
+                    <strong>Hostel MS Admins</strong><br>
+                    Sholoshahar, 2no. Gate<br>
+                    Chittagong, BD 1000<br>
+                    Phone: (+880) 1867-655403<br>
                     Email: info@wdpf54.tech
                   </address>
                 </div>
@@ -62,7 +62,7 @@
                   <address>
                     <strong><?= $bill->name ?></strong><br>
                     Phone: <?= $bill->contact ?><br>
-                    Guardian: <?= $bill->guardian_contact ?>
+                    Guardian's Contact: <?= $bill->guardian_contact ?>
                   </address>
                 </div>
                 <!-- /.col -->

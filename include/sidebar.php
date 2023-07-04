@@ -166,12 +166,6 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= $base_url ?>invoice_list.php" class="nav-link">
-                <i class="fa-solid fa-file-invoice-dollar nav-icon"></i>
-                <p>Invoices</p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?= $base_url ?>income_view.php" class="nav-link">
                 <i class="fa-solid fa-sack-dollar nav-icon"></i>
                 <p>Income</p>

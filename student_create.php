@@ -26,7 +26,16 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-
+                <?php
+                  $room_data=$mysqli->common_select('student','`room_id`,`seat_id`');
+                  $room_data_json=array();
+                  if(!$room_data['error'] && count($room_data['data'])>0){
+                    foreach($room_data['data'] as $rd){
+                      $room_data_json[$rd->room_id][]=$rd->seat_id;
+                    }
+                  }
+                  
+                ?>
             <div class="card card-danger">
               <form enctype="multipart/form-data" action="" method="post">
                 <div class="card-header">
@@ -72,14 +81,30 @@
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Seat No:</label>
-                        <select class="custom-select mr-sm-2" id="" name="seat_id">
+                        <label>Room:</label>
+                        <select onchange="seat_check(this.value)" class="custom-select mr-sm-2" id="" name="room_id">
+                          <option value="">Select Room</option>
+                          <?php
+                            $data=$mysqli->common_select('room');
+                            if(!$data['error']){
+                              foreach($data['data'] as $dt){
+                          ?>
+                              <option value="<?= $dt->id ?>"><?= $dt->room_no ?></option>
+                          <?php } } ?>
+                        </select> 
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Seat:</label>
+                        <select class="custom-select mr-sm-2" id="seat_id" name="seat_id">
+                          <option value="">Select Seat</option>
                           <?php
                             $data=$mysqli->common_select('seat');
                             if(!$data['error']){
                               foreach($data['data'] as $dt){
                           ?>
-                              <option value="<?= $dt->id ?>"><?= $dt->seat_no ?></option>
+                              <option data-room="room<?= $dt->room_id ?>seat<?= $dt->id ?>" class="seat seat<?= $dt->room_id ?>" value="<?= $dt->id ?>"><?= $dt->seat_no ?></option>
                           <?php } } ?>
                         </select> 
                       </div>
@@ -117,3 +142,17 @@
     <!-- /.content -->
   </div>
 <?php require_once('include/footer.php'); ?>
+
+<script>
+  var roomdata=<?= json_encode($room_data_json); ?>;
+  for(i in roomdata){
+    for(s in roomdata[i]){
+      $("option[data-room='room" + i +"seat"+ roomdata[i][s] +"']").remove();
+    }
+  }
+  function seat_check(e){
+    $('.seat').hide();
+    $('#seat_id').val('');
+    $('.seat'+e).show();
+  }
+</script>

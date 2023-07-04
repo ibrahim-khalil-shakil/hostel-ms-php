@@ -42,7 +42,7 @@
                     echo "<h2 class='text-danger text-center'>This url is not correct</h2>";
                     exit;
                   }
-                  $room_data=$mysqli->common_select('student','`room_id`,`seat_id`');
+                  $room_data=$mysqli->common_select_query('select room_id,seat_id from student where seat_id!="'.$d->seat_id.'"');
                   $room_data_json=array();
                   if(!$room_data['error'] && count($room_data['data'])>0){
                     foreach($room_data['data'] as $rd){
@@ -92,15 +92,15 @@
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group">
-                        <label>Seat:</label>
-                        <select onchange="seat_check(this.value)" class="custom-select mr-sm-2" id="" name="room_id">
+                        <label>Room:</label>
+                        <select onchange="seat_check(this.value)" class="custom-select mr-sm-2" id="room_id" name="room_id">
                           <option value="">Select Room</option>
                           <?php
                             $data=$mysqli->common_select('room');
                             if(!$data['error']){
                               foreach($data['data'] as $dt){
                           ?>
-                              <option <?= $d->room_id==$dt->id?"selected":"" ?> value="<?= $dt->id ?>"><?= $dt->room_no ?></option>
+                              <option value="<?= $dt->id ?>"><?= $dt->room_no ?></option>
                           <?php } } ?>
                         </select> 
                       </div>
@@ -159,9 +159,13 @@
       $("option[data-room='room" + i +"seat"+ roomdata[i][s] +"']").remove();
     }
   }
+  
+  seat_check(<?= $d->room_id ?>)
   function seat_check(e){
     $('.seat').hide();
     $('#seat_id').val('');
     $('.seat'+e).show();
   }
+  $('#room_id').val('<?= $d->room_id ?>');
+  $('#seat_id').val('<?= $d->seat_id ?>');
 </script>

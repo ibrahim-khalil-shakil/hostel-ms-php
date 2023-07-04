@@ -139,6 +139,11 @@ $totalInc = $totalexp= 0;
                             </tfoot>
                         </table>
                     </div>
+                    <div class="row no-print">
+                <div class="col-12">
+                  <a onclick="window.print()" href="#" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                </div>
+              </div>
                 </div>
             </div>
         </div>

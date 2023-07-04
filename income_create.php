@@ -1,5 +1,5 @@
 <?php require_once('include/header.php'); ?>
-<?php require_once('include/sidebar.php'); ?>
+<?php require_once('include/sidebar.php'); ?> 
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -43,7 +43,7 @@
                         if (!$data['error']) {
                           foreach ($data['data'] as $dt) {
                         ?>
-                            <option value="<?= $dt->id ?>"><?= $dt->head_code ?></option>
+                            <option value="<?= $dt->id ?>"><?= $dt->head_code ?> - <?= $dt->head_name ?></option>
                         <?php }
                         } ?>
                       </select>
@@ -52,7 +52,7 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label>Amount:</label>
-                      <input type="text" name="amount" class="form-control" placeholder="Seat No">
+                      <input type="text" name="amount" class="form-control" placeholder="0000.00">
                     </div>
                   </div>
                   <div class="col-sm-4">

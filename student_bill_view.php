@@ -68,7 +68,7 @@
                     <td><?= $d->bill_status ? "Paid" : "Unpaid" ?></td>
                     <td class="text-center">
                       <a title="Bill Pay" href="student_bill_pay.php?id=<?= $d->id ?>">
-                      <i class="far fa-money-bill-alt" aria-hidden="true"></i>
+                      <i class="far fa-money-bill-alt" aria-hidden="true"></i>  Bill Pay Option
                       </a>
                     </td>
                     <td class="text-center">
@@ -78,8 +78,8 @@
                         </a>
                       <?php } ?>
                    
-                      <a title="Bill Pay" href="invoice-print.php?id=<?= $d->id ?>">
-                        <i class="fa-solid fa-receipt"></i>
+                      <a title="Invoice" href="invoice-print.php?id=<?= $d->id ?>">
+                        <i class="fa-solid fa-receipt"></i> View Invoice
                       </a>
                     </td>
                   </tr>

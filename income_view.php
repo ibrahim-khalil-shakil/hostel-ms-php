@@ -35,7 +35,6 @@
           <table id="datatable" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Account Head ID</th>
                 <th>Amount</th>
                 <th>Transaction Date</th>
@@ -50,7 +49,6 @@
 
               ?>
                   <tr>
-                    <td><?= $d->id ?></td>
                     <td><?= $d->account_head_id ?></td>
                     <td><?= $d->amount ?></td>
                     <td><?= $d->transaction_date ?></td>
